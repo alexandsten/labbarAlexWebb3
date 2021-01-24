@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE vacation_objects SYSTEM "genre.dtd">
+<!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
     <genre type="horror"></genre>
     <genrefilmer>
