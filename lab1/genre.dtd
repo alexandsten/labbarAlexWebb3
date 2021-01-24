@@ -11,5 +11,5 @@
 		<!ELEMENT age (#PCDATA)>
 		<!ELEMENT starttime (#PCDATA)>
 <!ELEMENT genredescription (#PCDATA)>
-<!ELEMENT kontakt EMPTY> 
+<!ELEMENT kontakt (#PCDATA)> 
 <!ATTLIST kontakt url CDATA #REQUIRED>
