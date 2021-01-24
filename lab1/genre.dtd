@@ -3,8 +3,8 @@
 <!ATTLIST genre type (horror|romance|action) #REQUIRED>
 <!ELEMENT genrefilmer (film+)>
 	<!ELEMENT film (title, regi, runtime, age, starttime)>
-			<!ATTLIST film url CDATA #REQUIRED>
 			<!ELEMENT title (#PCDATA)>
+			<!ATTLIST title url CDATA #REQUIRED>
             <!ELEMENT regi (#PCDATA)>
 			<!ATTLIST regi url CDATA #REQUIRED>
 		<!ELEMENT runtime (#PCDATA)>
