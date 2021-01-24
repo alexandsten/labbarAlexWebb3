@@ -4,7 +4,8 @@
 <!ELEMENT genrefilmer (film+)>
 	<!ELEMENT film (regi, runtime, age, starttime)>
 			<!ATTLIST film url CDATA #REQUIRED>
-		<!ELEMENT regi (#PCDATA)>
+            <!ELEMENT title (#PCDATA)>
+            <!ELEMENT regi (#PCDATA)>
 			<!ATTLIST regi url CDATA #REQUIRED>
 		<!ELEMENT runtime (#PCDATA)>
 		<!ELEMENT age (#PCDATA)>

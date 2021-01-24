@@ -3,11 +3,12 @@
 <movielist>
     <genre type="horror"></genre>
     <genrefilmer>
-        <film url="imdb/saw">
-            <regi url="img/stevenspiel"></regi>
+        <film url="https://www.imdb.com/title/tt7349950/">
+            <title>It 2</title>
+            <regi url="https://www.imdb.com/name/nm0615592/?ref_=tt_ov_dr">Andy Muschietti </regi>
             <runtime></runtime>
-            <age></age>
-            <starttime></starttime>
+            <age>15 årsgräns</age>
+            <starttime>21.00</starttime>
         </film>
     </genrefilmer>
     <genredescription></genredescription>
