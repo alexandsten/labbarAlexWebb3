@@ -1,0 +1,14 @@
+<!ELEMENT movielist (genre, genrefilmer, genredescription, kontakt)>
+	<!ELEMENT genre (#PCDATA)>
+<!ATTLIST genre type (horror|romance|action) #REQUIRED>
+<!ELEMENT genrefilmer (film+)>
+	<!ELEMENT film (regi, runtime, age, starttime)>
+			<!ATTLIST film url CDATA #REQUIRED>
+		<!ELEMENT regi (#PCDATA)>
+			<!ATTLIST regi url CDATA #REQUIRED>
+		<!ELEMENT runtime (#PCDATA)>
+		<!ELEMENT age (#PCDATA)>
+		<!ELEMENT starttime (#PCDATA)>
+<!ELEMENT genredescription (#PCDATA)>
+<!ELEMENT kontakt EMPTY> 
+<!ATTLIST kontakt url CDATA #REQUIRED>
