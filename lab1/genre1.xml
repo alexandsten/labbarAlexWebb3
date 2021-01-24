@@ -4,6 +4,13 @@
     <genre type="horror">Skräck</genre>
     <genrefilmer>
         <film>     
+            <title url="https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3">Annabelle: Creation</title>
+            <regi url="https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr">David F. Sandberg </regi>
+            <runtime>1 timme 49 min</runtime>
+            <age>15 årsgräns</age>
+            <starttime>21.00</starttime>
+        </film>
+        <film>     
             <title url="https://www.imdb.com/title/tt7349950/">IT 2</title>
             <regi url="https://www.imdb.com/name/nm0615592/?ref_=tt_ov_dr">Andy Muschietti </regi>
             <runtime>2 timmar 49 min</runtime>
