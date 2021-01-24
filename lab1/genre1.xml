@@ -17,6 +17,13 @@
             <age>15 årsgräns</age>
             <starttime>21.00</starttime>
         </film>
+        <film>     
+            <title url="https://www.imdb.com/title/tt1502407/?ref_=nv_sr_srsg_8">Halloween</title>
+            <regi url="https://www.imdb.com/name/nm0337773/?ref_=tt_ov_dr">David Gordon Green </regi>
+            <runtime>1 timmar 46 min</runtime>
+            <age>15 årsgräns</age>
+            <starttime>21.15</starttime>
+        </film>
     </genrefilmer>
     <genredescription></genredescription>
     <kontakt url="https://www.filmstaden.se/"/>
