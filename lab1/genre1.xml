@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
-    <genre type="horror"></genre>
+    <genre type="horror">Skräck</genre>
     <genrefilmer>
-        <film url="https://www.imdb.com/title/tt7349950/">
-           
+        <film url="https://www.imdb.com/title/tt7349950/">     
+            <title>It 2</title>
             <regi url="https://www.imdb.com/name/nm0615592/?ref_=tt_ov_dr">Andy Muschietti </regi>
-            <runtime></runtime>
+            <runtime>2 timmar 49 min</runtime>
             <age>15 årsgräns</age>
             <starttime>21.00</starttime>
         </film>
