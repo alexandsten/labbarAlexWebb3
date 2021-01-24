@@ -2,7 +2,14 @@
 <!DOCTYPE vacation_objects SYSTEM "genre.dtd">
 <movielist>
     <genre type="horror"></genre>
-    <genrefilmer></genrefilmer>
+    <genrefilmer>
+        <film url="imdb/saw">
+            <regi url="img/stevenspiel"></regi>
+            <runtime></runtime>
+            <age></age>
+            <starttime></starttime>
+        </film>
+    </genrefilmer>
     <genredescription></genredescription>
     <kontakt url="sf.se" />
 </movielist>
