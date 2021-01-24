@@ -19,10 +19,10 @@
         </film>
         <film>     
             <title url="https://www.imdb.com/title/tt0332280/?ref_=nv_sr_srsg_0">The Notebook</title>
-            <regi url="https://www.imdb.com/name/nm0337773/?ref_=tt_ov_dr">David Gordon Green</regi>
-            <runtime>2 timmar 2 min</runtime>
-            <age>15 årsgräns</age>
-            <starttime>21.15</starttime>
+            <regi url="https://www.imdb.com/name/nm0001024/?ref_=tt_ov_dr">Nick Cassavetes</regi>
+            <runtime>2 timmar 3 min</runtime>
+            <age>11 årsgräns</age>
+            <starttime>20.15</starttime>
         </film>
     </genrefilmer>
     <genredescription>En filmgenre som ger tittaren fjärilar i magen och upplevelser av dramatiska kärleksaffärer.</genredescription>
