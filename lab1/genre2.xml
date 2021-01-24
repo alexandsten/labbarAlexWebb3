@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE movielist SYSTEM "genre.dtd">
+<movielist>
+    <genre type="romance">Romans</genre>
+    <genrefilmer>
+        <film>     
+            <title url="https://www.imdb.com/title/tt2322441/?ref_=nv_sr_srsg_0">Fifty Shades of Grey</title>
+            <regi url="https://www.imdb.com/name/nm0853374/?ref_=tt_ov_dr">Sam Taylor-Johnson</regi>
+            <runtime>2 timmar 5 min</runtime>
+            <age>15 årsgräns</age>
+            <starttime>20.00</starttime>
+        </film>
+        <film>     
+            <title url="https://www.imdb.com/title/tt1099212/?ref_=tt_sims_tt">Twilight</title>
+            <regi url="https://www.imdb.com/name/nm0362566/?ref_=tt_ov_dr">Catherine Hardwicke</regi>
+            <runtime>2 timmar 2 min</runtime>
+            <age>11 årsgräns</age>
+            <starttime>18.00</starttime>
+        </film>
+        <film>     
+            <title url="https://www.imdb.com/title/tt0332280/?ref_=nv_sr_srsg_0">The Notebook</title>
+            <regi url="https://www.imdb.com/name/nm0337773/?ref_=tt_ov_dr">David Gordon Green</regi>
+            <runtime>2 timmar 2 min</runtime>
+            <age>15 årsgräns</age>
+            <starttime>21.15</starttime>
+        </film>
+    </genrefilmer>
+    <genredescription>En filmgenre som ger tittaren fjärilar i magen och upplevelser av dramatiska kärleksaffärer.</genredescription>
+    <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/">Kontakta Oss</kontakt>
+</movielist>
