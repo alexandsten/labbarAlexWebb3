@@ -1,5 +1,5 @@
 <!ELEMENT movielist (genre, genrefilmer, genredescription, kontakt)>
-	<!ELEMENT genre (#PCDATA)>
+	<!ELEMENT genre EMPTY>
 <!ATTLIST genre type (horror|romance|action) #REQUIRED>
 <!ELEMENT genrefilmer (film+)>
 	<!ELEMENT film (title, regi, runtime, age, starttime)>

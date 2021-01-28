@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
-    <genre type="romance">Romans</genre>
+    <genre type="romance"/>
     <genrefilmer>
         <film>     
             <title url="https://www.imdb.com/title/tt2322441/?ref_=nv_sr_srsg_0">Fifty Shades of Grey</title>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
-    <genre type="horror">Skräck</genre>
+    <genre type="horror"/>
     <genrefilmer>
         <film>     
             <title url="https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3">Annabelle: Creation</title>

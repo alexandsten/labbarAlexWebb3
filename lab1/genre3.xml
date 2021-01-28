@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
-    <genre type="action">Action</genre>
+    <genre type="action"/>
     <genrefilmer>
         <film>     
             <title url="https://www.imdb.com/title/tt3371366/?ref_=nv_sr_srsg_0">Transformers: The Last Knight</title>
