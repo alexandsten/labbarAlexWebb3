@@ -70,7 +70,6 @@ function requestData(IdNr) { // IdNr används för att få rätt XML kurs eller 
 	request.onreadystatechange = function ()  { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4) // readyState 4 --> kommunikationen är klar
 		if (request.status == 200) getData(request.responseXML); // status 200 (OK) --> filen fanns
-		else subjectInfoElem.innerHTML = "Den begärda resursen finns inte.";
 	};
 } // End requestDepartmentinfo
 
@@ -81,7 +80,7 @@ function getData(XMLcode) {
 	let HTMLcode = ""; // Textsträng med ny HTML-kod som skapas
 	if (choice == "subject") {
 		for (let i = 0; i < subjectElems.length; i++) {
-			// Referenser till elementen name och capital inom ett country-element
+			// Referenser till elementen som ska användas inom ett subject-element
 			let nameElem = subjectElems[i].getElementsByTagName("name")[0];
 			let infoElem = subjectElems[i].getElementsByTagName("info")[0];
 			HTMLcode += "<h3>" + nameElem.firstChild.data + "</h3>" + "<p>" + infoElem.firstChild.data + "</p>";
@@ -89,9 +88,9 @@ function getData(XMLcode) {
 		subjectInfoElem.innerHTML = HTMLcode; 
 	}
 	if (choice == "course") {
-		courseListElem.innerHTML = "<h3>" + courseName + "</h3>";
+		courseListElem.innerHTML = "<h3>" + courseName + "</h3>"; // h3 titel med kursens ämne
 		for (let i = 0; i < courseElems.length; i++) {
-			// Referenser till elementen name och capital inom ett country-element
+			// Referenser till elementen som ska användas inom ett course-element
 			let codeElem = courseElems[i].getElementsByTagName("code")[0];
 			let titleElem = courseElems[i].getElementsByTagName("title")[0];
 			let creditElem = courseElems[i].getElementsByTagName("credits")[0];
