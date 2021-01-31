@@ -19,7 +19,8 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 
 // Avläs menyn för val av ämne
 function selectSubject() {
-	subject = this.value; // Land i menyns option-element
+	subject = this.value; // variabel för det valda ämnet
+	// Det valda ämnet får ett nummer som används för att få rätt xml fil
 	if (subject == "Medieteknik") {
 		IdNr = 1;
 	}
@@ -38,16 +39,16 @@ function selectSubject() {
 
 // Avläs menyn för val av ämne för kurser
 function selectCourses() {
-	subject = this.value; // Land i menyns option-element
-	courseName = subject;
-	IdNr = 0;
-	if (subject == "Medieteknik") {
+	course = this.value; // variabel för den valda kursen
+	courseName = course; // sparar kursens namn i en variabel
+	// DeN valda kursen får ett nummer som används för att få rätt xml fil
+	if (course == "Medieteknik") {
 		IdNr = 1;
 	}
-	if (subject == "Musikvetenskap") {
+	if (course == "Musikvetenskap") {
 		IdNr = 2;
 	}
-	if (subject == "Svenska språket") {
+	if (course == "Svenska språket") {
 		IdNr = 3;
 	}
 	choice = "course";
