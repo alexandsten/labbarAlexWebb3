@@ -1,9 +1,8 @@
 // Globala variabler
 var subjectMenuElem, courseMenuElem;	// Referenser till select-elementen för menyerna
 var subjectInfoElem, courseListElem;	// Referenser till div-elementen där inläst data ska skrivas
-
-var choice = "";
-var courseName;
+var choice = "";	// används i if satser för att kolla om course eller subject används
+var courseName;		// Referens till det aktuella kursämnets namn
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
