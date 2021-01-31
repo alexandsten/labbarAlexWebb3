@@ -30,7 +30,7 @@ function selectSubject() {
 	if (subject == "Svenska språket") {
 		IdNr = 3;
 	}
-	choice = "subject";
+	choice = "subject"; // variabel som används för att xml med ämnde ska behandlas
 	requestData(IdNr);
 } // End selectSubject
 
@@ -51,18 +51,18 @@ function selectCourses() {
 	if (course == "Svenska språket") {
 		IdNr = 3;
 	}
-	choice = "course";
+	choice = "course"; // variabel som används för att xml med kurser ska behandlas
 	requestData(IdNr);
 } // End selectCourses
 
-// Gör ett Ajax-anrop för att läsa in begärd fil -- här testar jag mig fram
-function requestData(IdNr) { // country är landet för de objekt som ska hämtas
+// Gör ett Ajax-anrop för att läsa in begärd fil 
+function requestData(IdNr) { // IdNr används för att få rätt XML kurs eller ämne
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
-	if (choice == "subject") {
+	if (choice == "subject") {		// if sats för anrop för php xml ämnen
 		request.open("GET","getSubInfo.php?file=http://medieteknik.lnu.se/1me323/subjects.xml&id=" + IdNr,true); 
 		request.send(null); 
 	} 
-	if (choice == "course") {
+	if (choice == "course") {		// if sats för anrop för xml-kurser
 		request.open("GET","xml/courselist" + IdNr + ".xml",true); 
 		request.send(null); 
 	} 
@@ -76,8 +76,8 @@ function requestData(IdNr) { // country är landet för de objekt som ska hämta
 
 // Tolka subject XML-koden och skriv ut på önskad form
 function getData(XMLcode) {
-	let subjectElems = XMLcode.getElementsByTagName("subject"); // Lista (array) med alla country-element
-	let courseElems = XMLcode.getElementsByTagName("course"); // Lista (array) med alla country-element
+	let subjectElems = XMLcode.getElementsByTagName("subject"); // Lista (array) med alla ämne-element
+	let courseElems = XMLcode.getElementsByTagName("course"); // Lista (array) med alla kurs-element
 	let HTMLcode = ""; // Textsträng med ny HTML-kod som skapas
 	if (choice == "subject") {
 		for (let i = 0; i < subjectElems.length; i++) {
