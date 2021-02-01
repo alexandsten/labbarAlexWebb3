@@ -60,13 +60,12 @@ function requestData(IdNr) { // IdNr används för att få rätt XML kurs eller 
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	if (choice == "subject") {		// if sats för anrop för php xml ämnen
 		request.open("GET","getSubInfo.php?file=http://medieteknik.lnu.se/1me323/subjects.xml&id=" + IdNr,true); 
-		request.send(null); 
 	} 
 	if (choice == "course") {		// if sats för anrop för xml-kurser
 		request.open("GET","xml/courselist" + IdNr + ".xml",true); 
-		request.send(null); 
 	} 
 	// Skicka begäran till servern
+	request.send(null); 
 	request.onreadystatechange = function ()  { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4) // readyState 4 --> kommunikationen är klar
 		if (request.status == 200) getData(request.responseXML); // status 200 (OK) --> filen fanns
