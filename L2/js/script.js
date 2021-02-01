@@ -78,16 +78,16 @@ function getData(XMLcode) {
 	let subjectElems = XMLcode.getElementsByTagName("subject"); // Lista (array) med alla ämne-element
 	let courseElems = XMLcode.getElementsByTagName("course"); // Lista (array) med alla kurs-element
 	let HTMLcode = ""; // Textsträng med ny HTML-kod som skapas
-	if (choice == "subject") {
+	if (choice == "subject") {	// loop som sker om valet var ett ämne
 		for (let i = 0; i < subjectElems.length; i++) {
 			// Referenser till elementen som ska användas inom ett subject-element
 			let nameElem = subjectElems[i].getElementsByTagName("name")[0];
 			let infoElem = subjectElems[i].getElementsByTagName("info")[0];
 			HTMLcode += "<h3>" + nameElem.firstChild.data + "</h3>" + "<p>" + infoElem.firstChild.data + "</p>";
 		}
-		subjectInfoElem.innerHTML = HTMLcode; 
+		subjectInfoElem.innerHTML = HTMLcode; // skriver ut resultaten 
 	}
-	if (choice == "course") {
+	if (choice == "course") { // titel och loop som sker om valet var en kurs
 		courseListElem.innerHTML = "<h3>" + courseName + "</h3>"; // h3 titel med kursens ämne
 		for (let i = 0; i < courseElems.length; i++) {
 			// Referenser till elementen som ska användas inom ett course-element
@@ -96,6 +96,6 @@ function getData(XMLcode) {
 			let creditElem = courseElems[i].getElementsByTagName("credits")[0];
 			HTMLcode += "<p>" + codeElem.firstChild.data + ", " + titleElem.firstChild.data + ", " + creditElem.firstChild.data + "</p>";
 		}
-		courseListElem.innerHTML += HTMLcode;
+		courseListElem.innerHTML += HTMLcode;	// skriver ut resultaten 
 	}
 } // End getData
