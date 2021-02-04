@@ -1,12 +1,14 @@
 // Globala variabler
 var linkListElem;	// Referens till div-elementet för länkarna
+var linkInText;
 var courseListElem;	// Referens till div-element där valda kurser ska läggas.
 
 // Initiering av globala variabler och händelsehanterare.
 function init() {
 	linkListElem = document.getElementById("linkList");
 	document.getElementById("linkBtn").addEventListener("click",listLinks);
-	
+
+	linkInText = document.querySelectorAll("main section:nth-of-type(1) div a");
 	// Array med referenser till alla li-element i den andra section
 	let courseElems = document.querySelectorAll("main section:nth-of-type(2) div:first-of-type li");
 	for (let i = 0; i < courseElems.length; i++) {
@@ -21,7 +23,15 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 // ---------------------------------------------------------------
 // Kopiera alla länkar ur huvudtexten och lägg upp dem i en lista.
 function listLinks() {
+	for (let i = 0; i < linkInText.length; i++) {
+	linkInText[i].style.color = "#FFF";	
+	}
 	
+	
+	/*
+	let elem = document.querySelector("#fruits div:nth-of-type(1)")
+	let elem = document.getElementById("fruits").getElementsByTagName("div")[0];
+	*/
 } // End listLinks
 // ---------------------------------------------------------------
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
