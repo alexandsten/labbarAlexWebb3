@@ -37,8 +37,8 @@ function listLinks() {
 } // End listLinks
 // ---------------------------------------------------------------
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
-function addCourse() {
-	
+function addCourse(e) {
+	this.style.color = ("#fff");
 }
 
 // Den kurs användaren klickat på i kurslistan, tas bort.
