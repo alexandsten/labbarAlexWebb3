@@ -33,12 +33,12 @@ function listLinks() {
 // ---------------------------------------------------------------
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
 function addCourse(e) {
-	let newElem = document.createElement("p");
-	newElem.addEventListener("click",removeCourse);
-	newElem.style.cursor = "pointer";
-	let courseText = this.innerHTML;
-	let newTextNode = document.createTextNode(courseText); // Ny textnod
-	newElem.appendChild(newTextNode);
+	let newElem = document.createElement("p");	// nytt p element
+	newElem.addEventListener("click",removeCourse);	// klicka för att ta bort i listan
+	newElem.style.cursor = "pointer";	//ändra muspekare
+	let courseText = this.innerHTML;	//
+	let newTextNode = document.createTextNode(courseText); // Ny textnod + coursetext som innehåll
+	newElem.appendChild(newTextNode);	// lägg till textnoden i nya p elementet
 	courseListElemP = document.getElementById("courseList").getElementsByTagName("p");
 	for (let i = 0; i < courseListElemP.length; i++) {	
 		if (courseListElemP[i].innerHTML == this.innerHTML) {
