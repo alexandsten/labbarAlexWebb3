@@ -1,6 +1,6 @@
 // Globala variabler
 var linkListElem;	// Referens till div-elementet för länkarna
-var linkInText;
+var linkInText;		// Referens till kurslänkar inne i p textfältet
 var courseListElem;	// Referens till div-element där valda kurser ska läggas.
 
 // Initiering av globala variabler och händelsehanterare.
@@ -39,7 +39,7 @@ function listLinks() {
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
 function addCourse() {
 	
-} // End addCourse
+}
 
 // Den kurs användaren klickat på i kurslistan, tas bort.
 function removeCourse() {
