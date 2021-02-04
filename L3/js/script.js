@@ -51,9 +51,8 @@ function addCourse(e) {
 				return;
 			}	
 		}
-		let pElements = document.querySelector("#courseList");
-		let firstCourseInList = pElements.querySelector("p");
-		pElements.insertBefore(newElem,firstCourseInList);
+		let firstCourseInList = courseListElem.querySelector("p");
+		courseListElem.insertBefore(newElem,firstCourseInList);
 }
 
 // Den kurs användaren klickat på i kurslistan, tas bort.
