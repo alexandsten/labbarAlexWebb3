@@ -23,15 +23,16 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 // ---------------------------------------------------------------
 // Kopiera alla länkar ur huvudtexten och lägg upp dem i en lista.
 function listLinks() {
+	let listOfLinks = document.createElement("ul");
+	linkListElem.appendChild(listOfLinks);
 	for (let i = 0; i < linkInText.length; i++) {
-	linkInText[i].style.color = "#FFF";	
+	let newElem = document.createElement("li");
+	let clonedElem = linkInText[i].cloneNode(true); // Klonat element
+	newElem.appendChild(clonedElem);
+	listOfLinks.appendChild(newElem);
 	}
 	
-	
-	/*
-	let elem = document.querySelector("#fruits div:nth-of-type(1)")
-	let elem = document.getElementById("fruits").getElementsByTagName("div")[0];
-	*/
+
 } // End listLinks
 // ---------------------------------------------------------------
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
