@@ -3,7 +3,6 @@ var linkListElem;	// Referens till div-elementet för länkarna
 var linkInText;		// Referens till kurslänkar inne i p textfältet
 var courseListElem;	// Referens till div-element där valda kurser ska läggas.
 
-
 // Initiering av globala variabler och händelsehanterare.
 function init() {
 	linkListElem = document.getElementById("linkList");
@@ -40,22 +39,21 @@ function listLinks() {
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
 function addCourse(e) {
 	let newElem = document.createElement("p");
-	/*	newElem.innerHTML = this.innerHTML; */
 		newElem.addEventListener("click",removeCourse);
 		newElem.style.cursor = "pointer";
-
 		let courseText = this.innerHTML;
 		let newTextNode = document.createTextNode(courseText); // Ny textnod
 		newElem.appendChild(newTextNode);
-
-
 		courseListElemP = document.getElementById("courseList").getElementsByTagName("p");
+	
 		for (let i = 0; i < courseListElemP.length; i++) {	
 			if (courseListElemP[i].innerHTML == this.innerHTML) {
 				return;
 			}	
 		}
-		courseListElem.appendChild(newElem);
+		let pElements = document.querySelector("#courseList");
+		let firstCourseInList = pElements.querySelector("p");
+		pElements.insertBefore(newElem,firstCourseInList);
 }
 
 // Den kurs användaren klickat på i kurslistan, tas bort.
