@@ -42,6 +42,7 @@ function addCourse(e) {
 	let newElem = document.createElement("p");
 		newElem.innerHTML = this.innerHTML;
 		newElem.addEventListener("click",removeCourse);
+		newElem.style.cursor = "pointer";;
 		courseListElemP = document.getElementById("courseList").getElementsByTagName("p");
 		for (let i = 0; i < courseListElemP.length; i++) {	
 			if (courseListElemP[i].innerHTML == this.innerHTML) {
