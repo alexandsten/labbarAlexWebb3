@@ -27,6 +27,7 @@ function listLinks() {
 	for (let i = 0; i < linkInText.length; i++) {
 	let newElem = document.createElement("p");
 	let clonedElem = linkInText[i].cloneNode(true); // Klonat element
+	clonedElem.setAttribute("target", "_blank");
 	newElem.appendChild(clonedElem);
 	linkListElem.appendChild(newElem);
 	document.getElementById("linkBtn").removeEventListener("click",listLinks);
