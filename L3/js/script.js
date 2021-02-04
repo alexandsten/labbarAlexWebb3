@@ -41,7 +41,8 @@ function listLinks() {
 function addCourse(e) {
 	let newElem = document.createElement("p");
 		newElem.innerHTML = this.innerHTML;
-		courseListElemP = document.getElementById("courseList").getElementsByTagName("p");		
+		newElem.addEventListener("click",removeCourse);
+		courseListElemP = document.getElementById("courseList").getElementsByTagName("p");
 		for (let i = 0; i < courseListElemP.length; i++) {	
 			if (courseListElemP[i].innerHTML == this.innerHTML) {
 				return;
@@ -52,7 +53,7 @@ function addCourse(e) {
 
 // Den kurs användaren klickat på i kurslistan, tas bort.
 function removeCourse() {
-	
+	this.parentNode.removeChild(this);
 } // End removeCourse
 // ---------------------------------------------------------------
 // ----- Extramerit -----
