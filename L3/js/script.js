@@ -23,13 +23,13 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 // ---------------------------------------------------------------
 // Kopiera alla länkar ur huvudtexten och lägg upp dem i en lista.
 function listLinks() {
-	let listOfLinks = document.createElement("ul");
-	linkListElem.appendChild(listOfLinks);
+	
 	for (let i = 0; i < linkInText.length; i++) {
-	let newElem = document.createElement("li");
+	let newElem = document.createElement("p");
 	let clonedElem = linkInText[i].cloneNode(true); // Klonat element
 	newElem.appendChild(clonedElem);
-	listOfLinks.appendChild(newElem);
+	linkListElem.appendChild(newElem);
+	document.getElementById("linkBtn").removeEventListener("click",listLinks);
 	}
 	
 
