@@ -40,9 +40,15 @@ function listLinks() {
 // Den kurs användaren klickat på, läggs in överst i kurslistan.
 function addCourse(e) {
 	let newElem = document.createElement("p");
-		newElem.innerHTML = this.innerHTML;
+	/*	newElem.innerHTML = this.innerHTML; */
 		newElem.addEventListener("click",removeCourse);
-		newElem.style.cursor = "pointer";;
+		newElem.style.cursor = "pointer";
+
+		let courseText = this.innerHTML;
+		let newTextNode = document.createTextNode(courseText); // Ny textnod
+		newElem.appendChild(newTextNode);
+
+
 		courseListElemP = document.getElementById("courseList").getElementsByTagName("p");
 		for (let i = 0; i < courseListElemP.length; i++) {	
 			if (courseListElemP[i].innerHTML == this.innerHTML) {
