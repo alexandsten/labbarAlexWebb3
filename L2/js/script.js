@@ -3,7 +3,6 @@ var subjectMenuElem, courseMenuElem;	// Referenser till select-elementen för me
 var subjectInfoElem, courseListElem;	// Referenser till div-elementen där inläst data ska skrivas
 var choice = "";	// används i if satser för att kolla om course eller subject används
 var courseName;		// Referens till det aktuella kursämnets namn
-var selectedIndex;
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
