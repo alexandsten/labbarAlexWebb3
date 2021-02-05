@@ -78,6 +78,5 @@ function getData(XMLcode) {
 			HTMLcode += "<p>" + codeElem.firstChild.data + ", " + titleElem.firstChild.data + ", " + creditElem.firstChild.data + "</p>";
 		}
 		courseListElem.innerHTML += HTMLcode;	// skriver ut resultaten 
-		IdNr = this.selectedIndex = 0;		// Id nr nollställs
 	}
 } // End getData
