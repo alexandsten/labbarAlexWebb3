@@ -3,6 +3,7 @@ var subjectMenuElem, courseMenuElem;	// Referenser till select-elementen för me
 var subjectInfoElem, courseListElem;	// Referenser till div-elementen där inläst data ska skrivas
 var choice = "";	// används i if satser för att kolla om course eller subject används
 var courseName;		// Referens till det aktuella kursämnets namn
+var selectedIndex;
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
@@ -21,15 +22,7 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 function selectSubject() {
 	subject = this.value; // variabel för det valda ämnet
 	// Det valda ämnet får ett nummer som används för att få rätt xml fil
-	if (subject == "Medieteknik") {
-		IdNr = 1;
-	}
-	if (subject == "Musikvetenskap") {
-		IdNr = 2;
-	}
-	if (subject == "Svenska språket") {
-		IdNr = 3;
-	}
+	IdNr = this.selectedIndex;
 	choice = "subject"; // variabel som används för att xml med ämnde ska behandlas
 	requestData(IdNr);
 } // End selectSubject
@@ -41,17 +34,8 @@ function selectSubject() {
 function selectCourses() {
 	course = this.value; // variabel för den valda kursen
 	courseName = course; // sparar kursens namn i en variabel
-	// DeN valda kursen får ett nummer som används för att få rätt xml fil
-	if (course == "Medieteknik") {
-		IdNr = 1;
-	}
-	if (course == "Musikvetenskap") {
-		IdNr = 2;
-	}
-	if (course == "Svenska språket") {
-		IdNr = 3;
-	}
 	choice = "course"; // variabel som används för att xml med kurser ska behandlas
+	IdNr = this.selectedIndex;
 	requestData(IdNr);
 } // End selectCourses
 
@@ -59,7 +43,7 @@ function selectCourses() {
 function requestData(IdNr) { // IdNr används för att få rätt XML kurs eller ämne
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	if (choice == "subject") {		// if sats för anrop för php xml ämnen
-		request.open("GET","getSubInfo.php?file=http://medieteknik.lnu.se/1me323/subjects.xml&id=" + IdNr,true); 
+		request.open("GET","getSubInfo.php?file=http://medieteknik.lnu.se/1me323/subjects.xml&id=" + selectedIndex,true); 
 	} 
 	if (choice == "course") {		// if sats för anrop för xml-kurser
 		request.open("GET","xml/courselist" + IdNr + ".xml",true); 
@@ -96,5 +80,6 @@ function getData(XMLcode) {
 			HTMLcode += "<p>" + codeElem.firstChild.data + ", " + titleElem.firstChild.data + ", " + creditElem.firstChild.data + "</p>";
 		}
 		courseListElem.innerHTML += HTMLcode;	// skriver ut resultaten 
+		IdNr = this.selectedIndex = 0;
 	}
 } // End getData
