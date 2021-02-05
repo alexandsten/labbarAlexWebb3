@@ -43,7 +43,7 @@ function selectCourses() {
 function requestData(IdNr) { // IdNr används för att få rätt XML kurs eller ämne
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	if (choice == "subject") {		// if sats för anrop för php xml ämnen
-		request.open("GET","getSubInfo.php?file=http://medieteknik.lnu.se/1me323/subjects.xml&id=" + selectedIndex,true); 
+		request.open("GET","getSubInfo.php?file=http://medieteknik.lnu.se/1me323/subjects.xml&id=" + IdNr,true); 
 	} 
 	if (choice == "course") {		// if sats för anrop för xml-kurser
 		request.open("GET","xml/courselist" + IdNr + ".xml",true); 
