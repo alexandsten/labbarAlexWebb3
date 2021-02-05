@@ -20,10 +20,9 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 // Avläs menyn för val av ämne
 function selectSubject() {
 	subject = this.value; // variabel för det valda ämnet
-	// Det valda ämnet får ett nummer som används för att få rätt xml fil
-	IdNr = this.selectedIndex;
 	choice = "subject"; // variabel som används för att xml med ämnde ska behandlas
-	requestData(IdNr);
+	IdNr = this.selectedIndex;	// Det valda ämnet får ett nummer som används för att få rätt xml fil
+	requestData(IdNr);	
 } // End selectSubject
 
 
@@ -34,7 +33,7 @@ function selectCourses() {
 	course = this.value; // variabel för den valda kursen
 	courseName = course; // sparar kursens namn i en variabel
 	choice = "course"; // variabel som används för att xml med kurser ska behandlas
-	IdNr = this.selectedIndex;
+	IdNr = this.selectedIndex; // Det valda ämnet får ett nummer som används för att få rätt xml fil
 	requestData(IdNr);
 } // End selectCourses
 
@@ -79,6 +78,6 @@ function getData(XMLcode) {
 			HTMLcode += "<p>" + codeElem.firstChild.data + ", " + titleElem.firstChild.data + ", " + creditElem.firstChild.data + "</p>";
 		}
 		courseListElem.innerHTML += HTMLcode;	// skriver ut resultaten 
-		IdNr = this.selectedIndex = 0;
+		IdNr = this.selectedIndex = 0;		// Id nr nollställs
 	}
 } // End getData
