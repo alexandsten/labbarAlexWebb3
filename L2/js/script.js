@@ -61,8 +61,8 @@ function getData(XMLcode) {
 		subjectInfoElem.innerHTML = HTMLcode; // skriver ut resultaten 
 	}
 	if (choice == "course") { // titel och loop som sker om valet var en kurs
-		let courseName = XMLcode.getElementsByTagName("subject")[0];	
-		courseListElem.innerHTML = "<h3>" + courseName.firstChild.data + "</h3>"; // h3 titel med kursens ämne
+		let subjectName = XMLcode.getElementsByTagName("subject")[0];	
+		courseListElem.innerHTML = "<h3>" + subjectName.firstChild.data + "</h3>"; // h3 titel med kursens ämne
 		for (let i = 0; i < courseElems.length; i++) {
 			// Referenser till elementen som ska användas inom ett course-element
 			let codeElem = courseElems[i].getElementsByTagName("code")[0];
