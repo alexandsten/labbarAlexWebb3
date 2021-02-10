@@ -52,16 +52,15 @@ function requestData(IdNr) { // IdNr används för att få rätt XML kurs eller 
 
 // Tolka subject XML-koden och skriv ut på önskad form
 function getData(XMLcode) {
-	let subjectElems = XMLcode.getElementsByTagName("subject"); // Lista (array) med alla ämne-element
 	let courseElems = XMLcode.getElementsByTagName("course"); // Lista (array) med alla kurs-element
 	let HTMLcode = ""; // Textsträng med ny HTML-kod som skapas
 	if (choice == "subject") {	// loop som sker om valet var ett ämne
-	
+	/*	for (let i = 0; i < subjectElems.length; i++) {		*/
 			// Referenser till elementen som ska användas inom ett subject-element
-			let nameElem = subjectElems.getElementsByTagName("name")[0];
-			let infoElem = subjectElems.getElementsByTagName("info")[0];
+			let nameElem = XMLcode.getElementsByTagName("name")[0];
+			let infoElem = XMLcode.getElementsByTagName("info")[0];
 			HTMLcode += "<h3>" + nameElem.firstChild.data + "</h3>" + "<p>" + infoElem.firstChild.data + "</p>";
-
+/*		}		*/
 		subjectInfoElem.innerHTML = HTMLcode; // skriver ut resultaten 
 	}
 	if (choice == "course") { // titel och loop som sker om valet var en kurs
