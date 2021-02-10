@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
-    <genre type="horror"/>
     <genrefilmer>
         <film>     
             <title url="https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3">Annabelle: Creation</title>
@@ -26,5 +25,5 @@
         </film>
     </genrefilmer>
     <genredescription>En filmgenre som ger tittaren en rysligt hårresande upplevelse.</genredescription>
-    <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/">Kontakta Oss</kontakt>
+    <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/"/>
 </movielist>

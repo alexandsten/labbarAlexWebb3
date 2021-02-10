@@ -2,7 +2,6 @@
 var subjectMenuElem, courseMenuElem;	// Referenser till select-elementen för menyerna
 var subjectInfoElem, courseListElem;	// Referenser till div-elementen där inläst data ska skrivas
 var choice = "";	// används i if satser för att kolla om course eller subject används
-var courseName;		// Referens till det aktuella kursämnets namn
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
@@ -19,9 +18,8 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 
 // Avläs menyn för val av ämne
 function selectSubject() {
-	subject = this.value; // variabel för det valda ämnet
 	choice = "subject"; // variabel som används för att xml med ämnde ska behandlas
-	IdNr = this.selectedIndex;	// Det valda ämnet får ett nummer som används för att få rätt xml fil
+	let IdNr = this.selectedIndex;	// Det valda ämnet får ett nummer som används för att få rätt xml fil
 	requestData(IdNr);	
 } // End selectSubject
 
@@ -30,10 +28,8 @@ function selectSubject() {
 
 // Avläs menyn för val av ämne för kurser
 function selectCourses() {
-	course = this.value; // variabel för den valda kursen
-	courseName = course; // sparar kursens namn i en variabel
 	choice = "course"; // variabel som används för att xml med kurser ska behandlas
-	IdNr = this.selectedIndex; // Det valda ämnet får ett nummer som används för att få rätt xml fil
+	let IdNr = this.selectedIndex; // Det valda ämnet får ett nummer som används för att få rätt xml fil
 	requestData(IdNr);
 } // End selectCourses
 
@@ -69,7 +65,10 @@ function getData(XMLcode) {
 		subjectInfoElem.innerHTML = HTMLcode; // skriver ut resultaten 
 	}
 	if (choice == "course") { // titel och loop som sker om valet var en kurs
-		courseListElem.innerHTML = "<h3>" + courseName + "</h3>"; // h3 titel med kursens ämne
+	
+		let courseName = XMLcode.getElementsByTagName("subject")[0];	
+		courseListElem.innerHTML = "<h3>" + courseName.firstChild.data + "</h3>"; // h3 titel med kursens ämne
+
 		for (let i = 0; i < courseElems.length; i++) {
 			// Referenser till elementen som ska användas inom ett course-element
 			let codeElem = courseElems[i].getElementsByTagName("code")[0];

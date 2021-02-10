@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
-    <genre type="romance"/>
     <genrefilmer>
         <film>     
             <title url="https://www.imdb.com/title/tt2322441/?ref_=nv_sr_srsg_0">Fifty Shades of Grey</title>
@@ -33,5 +32,5 @@
         </film>
     </genrefilmer>
     <genredescription>En filmgenre som ger tittaren fjärilar i magen och upplevelser av dramatiska kärleksaffärer.</genredescription>
-    <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/">Kontakta Oss</kontakt>
+    <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/"/>
 </movielist>

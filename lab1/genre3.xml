@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE movielist SYSTEM "genre.dtd">
 <movielist>
-    <genre type="action"/>
     <genrefilmer>
         <film>     
             <title url="https://www.imdb.com/title/tt3371366/?ref_=nv_sr_srsg_0">Transformers: The Last Knight</title>
@@ -26,5 +25,5 @@
         </film>
     </genrefilmer>
     <genredescription>En filmgenre som ger tittaren en fartfylld upplevelse med adrenalin och explosioner.</genredescription>
-    <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/">Kontakta Oss</kontakt>
+    <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/"/>
 </movielist>
