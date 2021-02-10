@@ -23,7 +23,6 @@ function selectSubject() {
 	requestData(IdNr);	
 } // End selectSubject
 
-
 // ----- Meny 2 -----
 
 // Avläs menyn för val av ämne för kurser
@@ -55,12 +54,10 @@ function getData(XMLcode) {
 	let courseElems = XMLcode.getElementsByTagName("course"); // Lista (array) med alla kurs-element
 	let HTMLcode = ""; // Textsträng med ny HTML-kod som skapas
 	if (choice == "subject") {	// loop som sker om valet var ett ämne
-	/*	for (let i = 0; i < subjectElems.length; i++) {		*/
-			// Referenser till elementen som ska användas inom ett subject-element
-			let nameElem = XMLcode.getElementsByTagName("name")[0];
-			let infoElem = XMLcode.getElementsByTagName("info")[0];
-			HTMLcode += "<h3>" + nameElem.firstChild.data + "</h3>" + "<p>" + infoElem.firstChild.data + "</p>";
-/*		}		*/
+		// Referenser till elementen som ska användas inom ett subject-element
+		let nameElem = XMLcode.getElementsByTagName("name")[0];
+		let infoElem = XMLcode.getElementsByTagName("info")[0];
+		HTMLcode += "<h3>" + nameElem.firstChild.data + "</h3>" + "<p>" + infoElem.firstChild.data + "</p>";
 		subjectInfoElem.innerHTML = HTMLcode; // skriver ut resultaten 
 	}
 	if (choice == "course") { // titel och loop som sker om valet var en kurs
