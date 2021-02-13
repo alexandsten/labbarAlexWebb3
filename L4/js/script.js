@@ -1,5 +1,5 @@
 // Globala variabler
-/* var imgViewer;	*/
+/* var imgViewer;	
 
 var titleElem;		// Referens till element för bildspelets titel
 var imgElem;		// Referens till img-element för bildspelet
@@ -8,6 +8,7 @@ var imgUrls;		// Array med url:er för valda bilder
 var imgCaptions;	// Array med bildtexter till valda bilder
 var imgIx;			// Index för aktuell bild
 var timer;			// Referens till timern för bildspelet
+*/
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
@@ -16,17 +17,24 @@ function init() {
 	imgElem = document.querySelector("#imgViewer img");
 	captionElem = document.querySelector("#imgViewer p");
 	*/
+
+	let imageViewer = [];		// det ska iaf skapas ny instans för denna sak
+
+	// dessa ska bort någonstans ---//
 	imgUrls = ["pics/blank.png"]; // Initiera med den tomma bilden
 	imgCaptions = [""]; // Tom bildtext för den tomma bilden
 	imgIx = 0;
 	timer = null;
+	//----------//
+
+
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
 				requestImages("xml/images" + this.selectedIndex + ".xml");
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",prevImage);
+	document.querySelector("#prevBtn").addEventListener("click",prevImage); // referera till imageViewer
 	document.querySelector("#nextBtn").addEventListener("click",nextImage);
 	
 	// ----- Extramerit -----
@@ -49,9 +57,10 @@ window.addEventListener("load",init);
 
 // ----- constructor image ------- //
 
-function Image (imgUrl, imgCaption) {
+function Image (titleElem, imgUrl, imgCaption) {
 	this.caption = imgCaption;
 	this.url = imgUrl;
+	this.title = titleElem;
 
 }
 
@@ -60,10 +69,21 @@ function Image (imgUrl, imgCaption) {
 // ---- constructor imageViewer -- //
 
 function imageViewer (imgViewer) {
-	titleElem = document.querySelector("#imgViewer h3");
+	
+	var titleElem;		// Referens till element för bildspelets titel
+	var imgElem;		// Referens till img-element för bildspelet
+	var captionElem;	// Referens till element för bildtext
+	var imgUrls;		// Array med url:er för valda bilder
+	var imgCaptions;	// Array med bildtexter till valda bilder
+	var imgIx;			// Index för aktuell bild
+	var timer;			// Referens till timern för bildspelet
+	
+	titleElem = document.querySelector("#imgViewer h3");	// vet ej än
+
+	// ska vara i egenskap som heter "list"
 	imgElem = document.querySelector("#imgViewer img");
 	captionElem = document.querySelector("#imgViewer p");
-
+	//
 }
 
 // ---- end constructor imageViewer -- //
