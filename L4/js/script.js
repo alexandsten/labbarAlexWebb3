@@ -1,5 +1,5 @@
 // Globala variabler
-var imgViewer;
+/* var imgViewer;	*/
 
 var titleElem;		// Referens till element för bildspelets titel
 var imgElem;		// Referens till img-element för bildspelet
@@ -11,9 +11,11 @@ var timer;			// Referens till timern för bildspelet
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
+	/*
 	titleElem = document.querySelector("#imgViewer h3");
 	imgElem = document.querySelector("#imgViewer img");
 	captionElem = document.querySelector("#imgViewer p");
+	*/
 	imgUrls = ["pics/blank.png"]; // Initiera med den tomma bilden
 	imgCaptions = [""]; // Tom bildtext för den tomma bilden
 	imgIx = 0;
@@ -52,6 +54,19 @@ function Image (imgUrl, imgCaption) {
 	this.url = imgUrl;
 
 }
+
+// -- end construcor image ---- //
+
+// ---- constructor imageViewer -- //
+
+function imageViewer (imgViewer) {
+	titleElem = document.querySelector("#imgViewer h3");
+	imgElem = document.querySelector("#imgViewer img");
+	captionElem = document.querySelector("#imgViewer p");
+
+}
+
+// ---- end constructor imageViewer -- //
 
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
