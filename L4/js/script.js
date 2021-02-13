@@ -1,4 +1,6 @@
 // Globala variabler
+var imgViewer;
+
 var titleElem;		// Referens till element för bildspelets titel
 var imgElem;		// Referens till img-element för bildspelet
 var captionElem;	// Referens till element för bildtext
@@ -41,6 +43,16 @@ window.addEventListener("load",init);
 
 // ---------------------------------------------------------------
 // ----- Funktioner för bildspelet -----
+
+
+// ----- constructor image ------- //
+
+function Image (imgUrl, imgCaption) {
+	this.caption = imgCaption;
+	this.url = imgUrl;
+
+}
+
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
 function requestImages(file) { // Parametern nr används i url:en för den fil som ska läsas in
