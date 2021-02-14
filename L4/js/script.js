@@ -143,20 +143,20 @@ imageViewer.prototype.getImages(XMLcode) = function() { // Parametern XMLcode ä
 } // End getImages
 
 // Visa bilden med index imgIx
-function showImage() {
+imageViewer.prototype.showImage = function() {
 	imgElem.src = imgUrls[imgIx];
 	captionElem.innerHTML = (imgIx+1) + ". " + imgCaptions[imgIx];
 } // End showImage
 
 // Visa föregående bild
-function prevImage() {
+imageViewer.prototype.prevImage = function() {
 	if (imgIx > 0) imgIx--;
 	else imgIx = imgUrls.length - 1; // Gå runt till sista bilden
 	showImage();
 } // End prevImage
 
 // Visa nästa bild
-function nextImage() {
+imageViewer.prototype.nextImage = function() {
 	if (imgIx < imgUrls.length - 1) imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
 	showImage();
