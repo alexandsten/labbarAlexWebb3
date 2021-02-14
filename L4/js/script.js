@@ -116,7 +116,7 @@ function imageViewer (imgViewer) {
 
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
-function requestImages(file) { // Parametern nr används i url:en för den fil som ska läsas in
+imageViewer.prototype.requestImages(file) = function() { // Parametern nr används i url:en för den fil som ska läsas in
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET",file,true);
 	request.send(null); // Skicka begäran till servern
@@ -128,7 +128,7 @@ function requestImages(file) { // Parametern nr används i url:en för den fil s
 } // End requestImages
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
-function getImages(XMLcode) { // Parametern XMLcode är hela den inlästa XML-koden
+imageViewer.prototype.getImages(XMLcode) = function() { // Parametern XMLcode är hela den inlästa XML-koden
 	titleElem.innerHTML = XMLcode.getElementsByTagName("category")[0].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
