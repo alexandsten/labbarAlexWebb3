@@ -78,9 +78,10 @@ function imageViewer (imgViewer) {
 	// ska de vara i parametern eller hur hanterar jag dem? jag får kolla runt bland exemplen
 	// typ = this.titleElem = nånting;??
 	// dom alla andvänds i funktioner (metoder), som tex get images, så måste komma åt dessa därifrån
-	var titleElem;		// Referens till element för bildspelets titel
-	var imgElem;		// Referens till img-element för bildspelet
-	var captionElem;	// Referens till element för bildtext
+
+/*	var titleElem;	*/	// Referens till element för bildspelets titel
+/*	var imgElem;	*/	// Referens till img-element för bildspelet
+/*	var captionElem; */	// Referens till element för bildtext
 	var imgUrls;		// Array med url:er för valda bilder
 	var imgCaptions;	// Array med bildtexter till valda bilder
 	var imgIx;			// Index för aktuell bild
@@ -97,12 +98,13 @@ function imageViewer (imgViewer) {
 	//-------------------------------------------------
 	
 	
-	titleElem = document.querySelector("#imgViewer h3");	// vet ej än
+	this.titleElem = document.querySelector("#imgViewer h3");	// vet ej än
 
 	// ska vara i egenskap som heter "list"
-	imgElem = document.querySelector("#imgViewer img");
-	captionElem = document.querySelector("#imgViewer p");
+	this.imgElem = document.querySelector("#imgViewer img");
+	this.captionElem = document.querySelector("#imgViewer p");
 	//
+	alert("Hello! I am an alert box!!");
 }
 
 // ---- end constructor imageViewer -- //
