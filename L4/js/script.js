@@ -37,8 +37,8 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",function() { ImageViewer(imgViewer).prevImage(); });
-	document.querySelector("#nextBtn").addEventListener("click",function() { ImageViewer(imgViewer).nextImage(); });
+	document.querySelector("#prevBtn").addEventListener("click",function() { ImageViewer("imgViewer").prevImage(); });
+	document.querySelector("#nextBtn").addEventListener("click",function() { ImageViewer("imgViewer").nextImage(); });
 	
 	
 	// ----- Extramerit -----
@@ -103,11 +103,12 @@ function ImageViewer (imgViewer) {
 	//-------------------------------------------------
 	
 	
-	this.titleElem = document.querySelector("#" + imgViewer + "h3");	// vet ej än
+	 this.titleElem = document.querySelector("#" + imgViewer + "h3");	// vet ej än
 
 	// ska vara i egenskap som heter "list"
 	this.imgElem = document.querySelector("#" + imgViewer + "img");
-	this.captionElem = document.querySelector("#" + imgViewer + "p");
+	this.captionElem = document.querySelector("#" + imgViewer + "p");	
+
 	//
 	alert("" + imgViewer + "");
 
