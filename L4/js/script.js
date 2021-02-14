@@ -91,8 +91,12 @@ function imageViewer (imgViewer) {
 	// eller de ska nog ersättas med en egenskap som heter list, 
 	//en array som innehåller objekt, där varje objekt har egenskaperna caption och url
 	// alla ställen där bilder refereras ska detta ersätta / gälla istället
-	imgUrls = ["pics/blank.png"]; // Initiera med den tomma bilden
-	imgCaptions = [""]; // Tom bildtext för den tomma bilden
+
+	this.imageObjet {
+		imgUrls = ["pics/blank.png"]; // Initiera med den tomma bilden
+		imgCaptions = [""]; // Tom bildtext för den tomma bilden	
+	}
+
 	imgIx = 0;
 	timer = null;
 	//-------------------------------------------------
