@@ -29,7 +29,7 @@ function init() {
 	
 	//----------//
 
-	let imageViewerElem = new imageViewer(imgViewer);	// denna kanske alltid ska referas till med this?
+	imageViewerElem = new imageViewer("imgViewer");	// denna kanske alltid ska referas till med this?
 
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
@@ -37,8 +37,8 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewer(); });
-	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewer(); });
+	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewer.prevImage(); });
+	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewer.nextImage(); });
 	
 	
 	// ----- Extramerit -----
