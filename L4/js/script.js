@@ -103,13 +103,13 @@ function ImageViewer (imgViewer) {
 	//-------------------------------------------------
 	
 	
-	this.titleElem = document.querySelector("#imgViewer h3");	// vet ej än
+	this.titleElem = document.querySelector("#" + imgViewer + "h3");	// vet ej än
 
 	// ska vara i egenskap som heter "list"
-	this.imgElem = document.querySelector("#imgViewer img");
-	this.captionElem = document.querySelector("#imgViewer p");
+	this.imgElem = document.querySelector("#" + imgViewer + "img");
+	this.captionElem = document.querySelector("#" + imgViewer + "p");
 	//
-	alert("Hello! I am an alert box!!");
+	alert("" + imgViewer + "");
 
 }
 
