@@ -94,8 +94,8 @@ function imageViewer (imgViewer) {
 	this.list = [];
 	// vet ej om imageObject ska ligga här
 	this.imageObject = {
-		imgUrls = ["pics/blank.png"], // Initiera med den tomma bilden
-		imgCaptions = [""] // Tom bildtext för den tomma bilden	
+		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
+		imgCaptions: [""] // Tom bildtext för den tomma bilden	
 	};
 
 	imgIx = 0;
@@ -150,9 +150,9 @@ imageViewer.prototype.showImage = function() {
 
 // Visa föregående bild
 imageViewer.prototype.prevImage = function() {
-	if (imgIx > 0) imgIx--;
-	else imgIx = imgUrls.length - 1; // Gå runt till sista bilden
-	showImage();
+	if (this.list.imgIx > 0) this.list.imgIx--;
+	else this.list.imgIx = this.list.imgUrls.length - 1; // Gå runt till sista bilden
+	this.showImage();
 } // End prevImage
 
 // Visa nästa bild
