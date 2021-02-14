@@ -55,7 +55,14 @@ function ImageViewer (imgViewer) {
 	// alla ställen där bilder refereras ska detta ersätta / gälla istället
 	this.list = [];
 	// vet ej om imageObject ska ligga här
+	/*
 	this.imageObject = {
+		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
+		imgCaptions: [""] // Tom bildtext för den tomma bilden	
+	};
+	*/
+
+	this.list[0] = {
 		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
 		imgCaptions: [""] // Tom bildtext för den tomma bilden	
 	};
@@ -92,7 +99,7 @@ ImageViewer.prototype.requestImages = function(file) { // Parametern nr används
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
 ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är hela den inlästa XML-koden
-	titleElem.innerHTML = XMLcode.getElementsByTagName("category")[0].firstChild.data;
+	this.titleElem.innerHTML = XMLcode.getElementsByTagName("category")[0].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
 	imgUrls = [];		// Nya tomma arrayer för bilder
@@ -107,14 +114,15 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 
 // Visa bilden med index imgIx
 ImageViewer.prototype.showImage = function() {
-	this.imgElem.src = imgUrls[imgIx];
-	captionElem.innerHTML = (imgIx+1) + ". " + imgCaptions[imgIx];
+	alert("show");
+	this.imgElem.src = this.list[0].imgUrls[this.imgIx];		// hur refererar jag här?
+	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.imgCaptions[this.imgIx];
 } // End showImage
 
 // Visa föregående bild
 ImageViewer.prototype.prevImage = function() {
-	if (this.list.imgIx > 0) this.list.imgIx--;
-	else this.list.imgIx = this.list./*imgUrls.*/length - 1; // Gå runt till sista bilden
+	if (this.list.imgIx > 0) this.list[0].imgIx--;
+	else this.list.imgIx = this.list[0]./*imgUrls.*/length - 1; // Gå runt till sista bilden
 	this.showImage();
 	alert("prev");
 } // End prevImage
