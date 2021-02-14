@@ -13,7 +13,7 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewerElem.prevImage(); });
+	document.querySelector("#prevBtn").addEventListener("click",function() { ImageViewer.prevImage(); });
 	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewerElem.nextImage(); });
 	
 	
@@ -41,7 +41,6 @@ function Image (titleElem, imgUrl, imgCaption) {
 	this.caption = imgCaption;
 	this.url = imgUrl;
 	this.title = titleElem;
-
 }
 
 // -- end construcor image ---- //
@@ -55,9 +54,6 @@ function ImageViewer (imgViewer) {
 	// typ = this.titleElem = nånting;??
 	// dom alla andvänds i funktioner (metoder), som tex get images, så måste komma åt dessa därifrån
 
-/*	var titleElem;	*/	// Referens till element för bildspelets titel
-/*	var imgElem;	*/	// Referens till img-element för bildspelet
-/*	var captionElem; */	// Referens till element för bildtext
 	var imgUrls;		// Array med url:er för valda bilder
 	var imgCaptions;	// Array med bildtexter till valda bilder
 	var imgIx;			// Index för aktuell bild
@@ -87,6 +83,8 @@ function ImageViewer (imgViewer) {
 
 	//
 	alert("" + imgViewer + "");
+
+	return this;
 }
 
 // ---- end constructor imageViewer -- //
