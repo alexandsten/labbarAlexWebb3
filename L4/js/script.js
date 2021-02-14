@@ -37,8 +37,8 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",function() { this.prevImage(); });
-	document.querySelector("#nextBtn").addEventListener("click",function() { this.nextImage(); });
+	document.querySelector("#prevBtn").addEventListener("click",function() { ImageViewer(imgViewer).prevImage(); });
+	document.querySelector("#nextBtn").addEventListener("click",function() { ImageViewer(imgViewer).nextImage(); });
 	
 	
 	// ----- Extramerit -----
@@ -110,13 +110,14 @@ function ImageViewer (imgViewer) {
 	this.captionElem = document.querySelector("#imgViewer p");
 	//
 	alert("Hello! I am an alert box!!");
+
 }
 
 // ---- end constructor imageViewer -- //
 
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
-ImageViewer.prototype.requestImages(file) = function() { // Parametern nr används i url:en för den fil som ska läsas in
+ImageViewer(imgViewer).prototype.requestImages(file) = function() { // Parametern nr används i url:en för den fil som ska läsas in
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET",file,true);
 	request.send(null); // Skicka begäran till servern
@@ -128,7 +129,7 @@ ImageViewer.prototype.requestImages(file) = function() { // Parametern nr använ
 } // End requestImages
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
-ImageViewer.prototype.getImages(XMLcode) = function() { // Parametern XMLcode är hela den inlästa XML-koden
+ImageViewer(imgViewer).prototype.getImages(XMLcode) = function() { // Parametern XMLcode är hela den inlästa XML-koden
 	titleElem.innerHTML = XMLcode.getElementsByTagName("category")[0].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
@@ -143,13 +144,13 @@ ImageViewer.prototype.getImages(XMLcode) = function() { // Parametern XMLcode ä
 } // End getImages
 
 // Visa bilden med index imgIx
-ImageViewer.prototype.showImage = function() {
+ImageViewer(imgViewer).prototype.showImage = function() {
 	imgElem.src = imgUrls[imgIx];
 	captionElem.innerHTML = (imgIx+1) + ". " + imgCaptions[imgIx];
 } // End showImage
 
 // Visa föregående bild
-ImageViewer.prototype.prevImage = function() {
+ImageViewer(imgViewer).prototype.prevImage = function() {
 	if (this.list.imgIx > 0) this.list.imgIx--;
 	else this.list.imgIx = this.list.imgUrls.length - 1; // Gå runt till sista bilden
 	this.showImage();
@@ -157,7 +158,7 @@ ImageViewer.prototype.prevImage = function() {
 } // End prevImage
 
 // Visa nästa bild
-ImageViewer.prototype.nextImage = function() {
+ImageViewer(imgViewer).prototype.nextImage = function() {
 	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
 	this.showImage();
