@@ -157,9 +157,9 @@ imageViewer.prototype.prevImage = function() {
 
 // Visa nästa bild
 imageViewer.prototype.nextImage = function() {
-	if (imgIx < imgUrls.length - 1) imgIx++;
+	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
-	showImage();
+	this.showImage();
 } // End nextImage
 
 // ----- Extramerit -----
