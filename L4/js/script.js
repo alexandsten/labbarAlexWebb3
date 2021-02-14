@@ -44,13 +44,8 @@ function ImageViewer (imgViewer) {
 	// typ = this.titleElem = nånting;??
 	// dom alla andvänds i funktioner (metoder), som tex get images, så måste komma åt dessa därifrån
 
-	var imgUrls;		// Array med url:er för valda bilder
-	var imgCaptions;	// Array med bildtexter till valda bilder
-	var imgIx;			// Index för aktuell bild
 	var timer;			// Referens till timern för bildspelet
 
-	// dessa ska Kanske vara här ---------------------
-	// eller de ska nog ersättas med en egenskap som heter list, 
 	//en array som innehåller objekt, där varje objekt har egenskaperna caption och url
 	// alla ställen där bilder refereras ska detta ersätta / gälla istället
 	this.list = [];
@@ -115,23 +110,30 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 // Visa bilden med index imgIx
 ImageViewer.prototype.showImage = function() {
 	alert("show");
-	this.imgElem.src = this.list[0].imgUrls[this.imgIx];		// hur refererar jag här?
+	self = this;
+	for (let i = 0; i < this.list.length; i++) {
+	this.imgElem.src = this.list[i].imgUrls[this.imgIx];		// hur refererar jag här?
+	}
 	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.imgCaptions[this.imgIx];
 } // End showImage
 
 // Visa föregående bild
 ImageViewer.prototype.prevImage = function() {
-	if (this.list.imgIx > 0) this.list[0].imgIx--;
+	for (let i = 0; i < this.list.length; i++) {
+	if (this.list.imgIx > 0) this.list[i].imgIx--;
 	else this.imgIx = this.list[0]./*imgUrls.*/length - 1; // Gå runt till sista bilden
+	}
 	this.showImage();
 	alert("prev");
 } // End prevImage
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
+	for (let i = 0; i < this.list.length; i++) {
 	if (this.imgIx < this.list[0].imgUrls.length - 1) this.imgIx++;
 	else this.imgIx = 0; // Gå runt till första bilden
 	this.imgIx++; // jag som lagt dit detta för att testa
+	}
 	alert("" + this.imgIx + "");
 	this.showImage();
 	alert("" + this.imgIx + "");
