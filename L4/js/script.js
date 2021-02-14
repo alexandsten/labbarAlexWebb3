@@ -153,6 +153,7 @@ imageViewer.prototype.prevImage = function() {
 	if (this.list.imgIx > 0) this.list.imgIx--;
 	else this.list.imgIx = this.list.imgUrls.length - 1; // Gå runt till sista bilden
 	this.showImage();
+	alert("prev");
 } // End prevImage
 
 // Visa nästa bild
@@ -160,6 +161,7 @@ imageViewer.prototype.nextImage = function() {
 	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
 	this.showImage();
+	alert("next");
 } // End nextImage
 
 // ----- Extramerit -----
