@@ -1,32 +1,8 @@
 // Globala variabler
-/* var imgViewer;	
-
-var titleElem;		// Referens till element för bildspelets titel
-var imgElem;		// Referens till img-element för bildspelet
-var captionElem;	// Referens till element för bildtext
-var imgUrls;		// Array med url:er för valda bilder
-var imgCaptions;	// Array med bildtexter till valda bilder
-var imgIx;			// Index för aktuell bild
-var timer;			// Referens till timern för bildspelet
-*/
+var imageViewerElem;
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
-	/*
-	titleElem = document.querySelector("#imgViewer h3");
-	imgElem = document.querySelector("#imgViewer img");
-	captionElem = document.querySelector("#imgViewer p");
-	*/
-
-
-	// dessa ska bort någonstans ---//	
-	/*
-	imgUrls = ["pics/blank.png"]; // Initiera med den tomma bilden
-	imgCaptions = [""]; // Tom bildtext för den tomma bilden
-	imgIx = 0;
-	timer = null;	
-	*/
-	
 	//----------//
 
 	imageViewerElem = new ImageViewer("imgViewer");	// denna kanske alltid ska referas till med this?
@@ -37,8 +13,8 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",function() { ImageViewer("imgViewer").prevImage(); });
-	document.querySelector("#nextBtn").addEventListener("click",function() { ImageViewer("imgViewer").nextImage(); });
+	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewerElem.prevImage(); });
+	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewerElem.nextImage(); });
 	
 	
 	// ----- Extramerit -----
@@ -103,7 +79,7 @@ function ImageViewer (imgViewer) {
 	//-------------------------------------------------
 	
 	
-	 this.titleElem = document.querySelector("#" + imgViewer + "h3");	// vet ej än
+	this.titleElem = document.querySelector("#" + imgViewer + "h3");	// vet ej än
 
 	// ska vara i egenskap som heter "list"
 	this.imgElem = document.querySelector("#" + imgViewer + "img");
@@ -111,14 +87,13 @@ function ImageViewer (imgViewer) {
 
 	//
 	alert("" + imgViewer + "");
-
 }
 
 // ---- end constructor imageViewer -- //
 
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
-ImageViewer(imgViewer).prototype.requestImages(file) = function() { // Parametern nr används i url:en för den fil som ska läsas in
+ImageViewer.prototype.requestImages = function(file) { // Parametern nr används i url:en för den fil som ska läsas in
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET",file,true);
 	request.send(null); // Skicka begäran till servern
@@ -130,7 +105,7 @@ ImageViewer(imgViewer).prototype.requestImages(file) = function() { // Parameter
 } // End requestImages
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
-ImageViewer(imgViewer).prototype.getImages(XMLcode) = function() { // Parametern XMLcode är hela den inlästa XML-koden
+ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är hela den inlästa XML-koden
 	titleElem.innerHTML = XMLcode.getElementsByTagName("category")[0].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
@@ -145,13 +120,13 @@ ImageViewer(imgViewer).prototype.getImages(XMLcode) = function() { // Parametern
 } // End getImages
 
 // Visa bilden med index imgIx
-ImageViewer(imgViewer).prototype.showImage = function() {
+ImageViewer.prototype.showImage = function() {
 	imgElem.src = imgUrls[imgIx];
 	captionElem.innerHTML = (imgIx+1) + ". " + imgCaptions[imgIx];
 } // End showImage
 
 // Visa föregående bild
-ImageViewer(imgViewer).prototype.prevImage = function() {
+ImageViewer.prototype.prevImage = function() {
 	if (this.list.imgIx > 0) this.list.imgIx--;
 	else this.list.imgIx = this.list.imgUrls.length - 1; // Gå runt till sista bilden
 	this.showImage();
@@ -159,7 +134,7 @@ ImageViewer(imgViewer).prototype.prevImage = function() {
 } // End prevImage
 
 // Visa nästa bild
-ImageViewer(imgViewer).prototype.nextImage = function() {
+ImageViewer.prototype.nextImage = function() {
 	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
 	this.showImage();
