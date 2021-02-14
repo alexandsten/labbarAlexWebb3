@@ -1,11 +1,11 @@
 // Globala variabler
-var imageViewerElem;
+
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
 	//----------//
 
-	imageViewerElem = new ImageViewer("imgViewer");	// denna kanske alltid ska referas till med this?
+	let imageViewerElem = new ImageViewer("imgViewer");	// denna kanske alltid ska referas till med this?
 
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
@@ -13,7 +13,7 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",function() { ImageViewer.prevImage(); });
+	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewerElem.prevImage(); });
 	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewerElem.nextImage(); });
 	
 	
@@ -34,16 +34,6 @@ window.addEventListener("load",init);
 // ---------------------------------------------------------------
 // ----- Funktioner för bildspelet -----
 
-
-// ----- constructor image ------- //
-
-function Image (titleElem, imgUrl, imgCaption) {
-	this.caption = imgCaption;
-	this.url = imgUrl;
-	this.title = titleElem;
-}
-
-// -- end construcor image ---- //
 
 // ---- constructor imageViewer -- //
 
@@ -83,7 +73,6 @@ function ImageViewer (imgViewer) {
 
 	//
 	alert("" + imgViewer + "");
-
 	return this;
 }
 
@@ -125,6 +114,7 @@ ImageViewer.prototype.showImage = function() {
 
 // Visa föregående bild
 ImageViewer.prototype.prevImage = function() {
+	alert("prev");
 	if (this.list.imgIx > 0) this.list.imgIx--;
 	else this.list.imgIx = this.list.imgUrls.length - 1; // Gå runt till sista bilden
 	this.showImage();
@@ -133,6 +123,7 @@ ImageViewer.prototype.prevImage = function() {
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
+	alert("next");
 	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
 	this.showImage();
