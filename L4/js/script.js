@@ -67,7 +67,7 @@ function ImageViewer (imgViewer) {
 		imgCaptions: [""] // Tom bildtext för den tomma bilden	
 	};
 
-	imgIx = 0;
+	this.imgIx = 0;
 	timer = null;
 	//-------------------------------------------------
 	
@@ -122,15 +122,15 @@ ImageViewer.prototype.showImage = function() {
 // Visa föregående bild
 ImageViewer.prototype.prevImage = function() {
 	if (this.list.imgIx > 0) this.list[0].imgIx--;
-	else this.list.imgIx = this.list[0]./*imgUrls.*/length - 1; // Gå runt till sista bilden
+	else this.imgIx = this.list[0]./*imgUrls.*/length - 1; // Gå runt till sista bilden
 	this.showImage();
 	alert("prev");
 } // End prevImage
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
-	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
-	else imgIx = 0; // Gå runt till första bilden
+	if (this.imgIx < this.list[0].imgUrls.length - 1) this.list.imgIx++;
+	else this.imgIx = 0; // Gå runt till första bilden
 	this.showImage();
 	alert("next");
 } // End nextImage
