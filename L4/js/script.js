@@ -18,15 +18,18 @@ function init() {
 	captionElem = document.querySelector("#imgViewer p");
 	*/
 
-	let imageViewer = [];		// det ska iaf skapas ny instans för denna sak
 
-	// dessa ska bort någonstans ---//
+	// dessa ska bort någonstans ---//	
+	/*
 	imgUrls = ["pics/blank.png"]; // Initiera med den tomma bilden
 	imgCaptions = [""]; // Tom bildtext för den tomma bilden
 	imgIx = 0;
-	timer = null;
+	timer = null;	
+	*/
+	
 	//----------//
 
+	let imageViewerElem = new imageViewer(imgViewer);	// kanske ska skriva en tydlig referens i parametern
 
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
@@ -34,8 +37,9 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",prevImage); // referera till imageViewer
-	document.querySelector("#nextBtn").addEventListener("click",nextImage);
+	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewer(); });
+	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewer(); });
+	
 	
 	// ----- Extramerit -----
 	/* document.querySelector("#autoBtn").addEventListener("click",
@@ -70,6 +74,10 @@ function Image (titleElem, imgUrl, imgCaption) {
 
 function imageViewer (imgViewer) {
 	
+	// dessa ska vara egenskaper för imageViewer, så jag får skriva om dem
+	// ska de vara i parametern eller hur hanterar jag dem? jag får kolla runt bland exemplen
+	// typ = this.titleElem = nånting;??
+	// dom alla andvänds i funktioner (metoder), som tex get images, så måste komma åt dessa därifrån
 	var titleElem;		// Referens till element för bildspelets titel
 	var imgElem;		// Referens till img-element för bildspelet
 	var captionElem;	// Referens till element för bildtext
@@ -77,6 +85,17 @@ function imageViewer (imgViewer) {
 	var imgCaptions;	// Array med bildtexter till valda bilder
 	var imgIx;			// Index för aktuell bild
 	var timer;			// Referens till timern för bildspelet
+
+	// dessa ska Kanske vara här ---------------------
+	// eller de ska nog ersättas med en egenskap som heter list, 
+	//en array som innehåller objekt, där varje objekt har egenskaperna caption och url
+	// alla ställen där bilder refereras ska detta ersätta / gälla istället
+	imgUrls = ["pics/blank.png"]; // Initiera med den tomma bilden
+	imgCaptions = [""]; // Tom bildtext för den tomma bilden
+	imgIx = 0;
+	timer = null;
+	//-------------------------------------------------
+	
 	
 	titleElem = document.querySelector("#imgViewer h3");	// vet ej än
 
