@@ -9,7 +9,7 @@ function init() {
 
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
-				requestImages("xml/images" + this.selectedIndex + ".xml");
+				imageViewerElem.requestImages("xml/images" + this.selectedIndex + ".xml");
 				this.selectedIndex = 0;
 			}
 		);
@@ -72,7 +72,6 @@ function ImageViewer (imgViewer) {
 	this.captionElem = document.querySelector("#" + imgViewer + "p");	
 
 	//
-	alert("" + imgViewer + "");
 	return this;
 }
 
@@ -86,7 +85,7 @@ ImageViewer.prototype.requestImages = function(file) { // Parametern nr används
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4) // readyState 4 --> kommunikationen är klar
-			if (request.status == 200) getImages(request.responseXML); // status 200 (OK) --> filen fanns
+			if (request.status == 200) this.getImages(request.responseXML); // status 200 (OK) --> filen fanns
 			else document.getElementById("result").innerHTML = "Den begärda resursen fanns inte.";
 	};
 } // End requestImages
@@ -108,22 +107,20 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 
 // Visa bilden med index imgIx
 ImageViewer.prototype.showImage = function() {
-	imgElem.src = imgUrls[imgIx];
+	this.imgElem.src = imgUrls[imgIx];
 	captionElem.innerHTML = (imgIx+1) + ". " + imgCaptions[imgIx];
 } // End showImage
 
 // Visa föregående bild
 ImageViewer.prototype.prevImage = function() {
-	alert("prev");
 	if (this.list.imgIx > 0) this.list.imgIx--;
-	else this.list.imgIx = this.list.imgUrls.length - 1; // Gå runt till sista bilden
+	else this.list.imgIx = this.list./*imgUrls.*/length - 1; // Gå runt till sista bilden
 	this.showImage();
 	alert("prev");
 } // End prevImage
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
-	alert("next");
 	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
 	this.showImage();
