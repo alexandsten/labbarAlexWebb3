@@ -129,10 +129,12 @@ ImageViewer.prototype.prevImage = function() {
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
-	if (this.imgIx < this.list[0].imgUrls.length - 1) this.list.imgIx++;
+	if (this.imgIx < this.list[0].imgUrls.length - 1) this.imgIx++;
 	else this.imgIx = 0; // Gå runt till första bilden
+	this.imgIx++; // jag som lagt dit detta för att testa
+	alert("" + this.imgIx + "");
 	this.showImage();
-	alert("next");
+	alert("" + this.imgIx + "");
 } // End nextImage
 
 // ----- Extramerit -----
