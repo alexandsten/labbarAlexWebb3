@@ -61,6 +61,18 @@ function ImageViewer (imgViewer) {
 		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
 		imgCaptions: [""] // Tom bildtext för den tomma bilden	
 	};
+	this.list[1] = {
+		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
+		imgCaptions: [""] // Tom bildtext för den tomma bilden	
+	};
+	this.list[2] = {
+		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
+		imgCaptions: [""] // Tom bildtext för den tomma bilden	
+	};
+	this.list[3] = {
+		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
+		imgCaptions: [""] // Tom bildtext för den tomma bilden	
+	};
 
 	this.imgIx = 0;
 	timer = null;
@@ -100,8 +112,8 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 	imgUrls = [];		// Nya tomma arrayer för bilder
 	imgCaptions = [];	// och bildtexter
 	for (let i = 0; i < urlElems.length; i++) {
-		imgUrls.push(urlElems[i].firstChild.data);
-		imgCaptions.push(captionElems[i].firstChild.data);
+		this.list[this.imgIx].imgUrls.push(urlElems[i].firstChild.data);
+		this.list[this.imgIx].imgCaptions.push(captionElems[i].firstChild.data);
 	}
 	imgIx = 0;
 	showImage(); // Visa första bilden
@@ -109,31 +121,30 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 
 // Visa bilden med index imgIx
 ImageViewer.prototype.showImage = function() {
-	alert("show");
-	self = this;
-	for (let i = 0; i < this.list.length; i++) {
-	this.imgElem.src = this.list[i].imgUrls[this.imgIx];		// hur refererar jag här?
-	}
+	alert("" + this.imgIx + "");
+
+	this.imgElem.src = this.list[this.imgIx].imgUrls[this.imgIx];		// hur refererar jag här?
+	
 	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.imgCaptions[this.imgIx];
 } // End showImage
 
-// Visa föregående bild
+// Visa föregående bild -- jag måste göra om denna funktion helt
 ImageViewer.prototype.prevImage = function() {
-	for (let i = 0; i < this.list.length; i++) {
-	if (this.list.imgIx > 0) this.list[i].imgIx--;
-	else this.imgIx = this.list[0]./*imgUrls.*/length - 1; // Gå runt till sista bilden
-	}
+
+	if (this.imgIx > 0) this.list[this.imgIx];
+	else this.imgIx --; // Gå runt till sista bilden
+
 	this.showImage();
 	alert("prev");
 } // End prevImage
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
-	for (let i = 0; i < this.list.length; i++) {
-	if (this.imgIx < this.list[0].imgUrls.length - 1) this.imgIx++;
+
+	if (this.imgIx < this.list[this.imgIx].imgUrls.length - 1) this.imgIx++;
 	else this.imgIx = 0; // Gå runt till första bilden
 	this.imgIx++; // jag som lagt dit detta för att testa
-	}
+	
 	alert("" + this.imgIx + "");
 	this.showImage();
 	alert("" + this.imgIx + "");
