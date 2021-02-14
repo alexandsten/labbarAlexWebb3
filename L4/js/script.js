@@ -29,7 +29,7 @@ function init() {
 	
 	//----------//
 
-	let imageViewerElem = new imageViewer(imgViewer);	// kanske ska skriva en tydlig referens i parametern
+	let imageViewerElem = new imageViewer(imgViewer);	// denna kanske alltid ska referas till med this?
 
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
