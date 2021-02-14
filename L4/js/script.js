@@ -29,7 +29,7 @@ function init() {
 	
 	//----------//
 
-	imageViewerElem = new imageViewer("imgViewer");	// denna kanske alltid ska referas till med this?
+	imageViewerElem = new ImageViewer("imgViewer");	// denna kanske alltid ska referas till med this?
 
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
@@ -37,8 +37,8 @@ function init() {
 				this.selectedIndex = 0;
 			}
 		);
-	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewer.prevImage(); });
-	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewer.nextImage(); });
+	document.querySelector("#prevBtn").addEventListener("click",function() { this.prevImage(); });
+	document.querySelector("#nextBtn").addEventListener("click",function() { this.nextImage(); });
 	
 	
 	// ----- Extramerit -----
@@ -72,7 +72,7 @@ function Image (titleElem, imgUrl, imgCaption) {
 
 // ---- constructor imageViewer -- //
 
-function imageViewer (imgViewer) {
+function ImageViewer (imgViewer) {
 	
 	// dessa ska vara egenskaper för imageViewer, så jag får skriva om dem
 	// ska de vara i parametern eller hur hanterar jag dem? jag får kolla runt bland exemplen
@@ -116,7 +116,7 @@ function imageViewer (imgViewer) {
 
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
-imageViewer.prototype.requestImages(file) = function() { // Parametern nr används i url:en för den fil som ska läsas in
+ImageViewer.prototype.requestImages(file) = function() { // Parametern nr används i url:en för den fil som ska läsas in
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET",file,true);
 	request.send(null); // Skicka begäran till servern
@@ -128,7 +128,7 @@ imageViewer.prototype.requestImages(file) = function() { // Parametern nr använ
 } // End requestImages
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
-imageViewer.prototype.getImages(XMLcode) = function() { // Parametern XMLcode är hela den inlästa XML-koden
+ImageViewer.prototype.getImages(XMLcode) = function() { // Parametern XMLcode är hela den inlästa XML-koden
 	titleElem.innerHTML = XMLcode.getElementsByTagName("category")[0].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
@@ -143,13 +143,13 @@ imageViewer.prototype.getImages(XMLcode) = function() { // Parametern XMLcode ä
 } // End getImages
 
 // Visa bilden med index imgIx
-imageViewer.prototype.showImage = function() {
+ImageViewer.prototype.showImage = function() {
 	imgElem.src = imgUrls[imgIx];
 	captionElem.innerHTML = (imgIx+1) + ". " + imgCaptions[imgIx];
 } // End showImage
 
 // Visa föregående bild
-imageViewer.prototype.prevImage = function() {
+ImageViewer.prototype.prevImage = function() {
 	if (this.list.imgIx > 0) this.list.imgIx--;
 	else this.list.imgIx = this.list.imgUrls.length - 1; // Gå runt till sista bilden
 	this.showImage();
@@ -157,7 +157,7 @@ imageViewer.prototype.prevImage = function() {
 } // End prevImage
 
 // Visa nästa bild
-imageViewer.prototype.nextImage = function() {
+ImageViewer.prototype.nextImage = function() {
 	if (this.list.imgIx < this.list.imgUrls.length - 1) this.list.imgIx++;
 	else imgIx = 0; // Gå runt till första bilden
 	this.showImage();
