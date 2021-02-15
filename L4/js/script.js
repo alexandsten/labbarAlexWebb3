@@ -54,6 +54,20 @@ function ImageViewer (imgViewer) {
 		imgUrls: "pics/blank.png", // Initiera med den tomma bilden
 		imgCaptions: "" // Tom bildtext för den tomma bilden	
 	};
+	/*
+	this.list[1] = {
+		imgUrls: "pics/blank.png", // Initiera med den tomma bilden
+		imgCaptions: "" // Tom bildtext för den tomma bilden	
+	};
+	this.list[2] = {
+		imgUrls: "pics/blank.png", // Initiera med den tomma bilden
+		imgCaptions: "" // Tom bildtext för den tomma bilden	
+	};
+	this.list[3] = {
+		imgUrls: "pics/blank.png", // Initiera med den tomma bilden
+		imgCaptions: "" // Tom bildtext för den tomma bilden	
+	};
+	*/
 
 
 	this.imgIx = 0;
