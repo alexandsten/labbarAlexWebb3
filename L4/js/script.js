@@ -5,7 +5,7 @@
 function init() {
 	//----------//
 
-	let imageViewerElem = new ImageViewer("imgViewer");	// denna kanske alltid ska referas till med this?
+	let imageViewerElem = new ImageViewer("imgViewer ");	// denna kanske alltid ska referas till med this?
 
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
