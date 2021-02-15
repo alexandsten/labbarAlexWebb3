@@ -49,14 +49,7 @@ function ImageViewer (imgViewer) {
 	//en array som innehåller objekt, där varje objekt har egenskaperna caption och url
 	// alla ställen där bilder refereras ska detta ersätta / gälla istället
 	this.list = [];
-	// vet ej om imageObject ska ligga här
-	/*
-	this.imageObject = {
-		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
-		imgCaptions: [""] // Tom bildtext för den tomma bilden	
-	};
-	*/
-
+	
 	this.list[0] = {
 		imgUrls: ["pics/blank.png"], // Initiera med den tomma bilden
 		imgCaptions: [""] // Tom bildtext för den tomma bilden	
@@ -94,12 +87,13 @@ function ImageViewer (imgViewer) {
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
 ImageViewer.prototype.requestImages = function(file) { // Parametern nr används i url:en för den fil som ska läsas in
+	self = this;
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET",file,true);
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4) // readyState 4 --> kommunikationen är klar
-			if (request.status == 200) this.getImages(request.responseXML); // status 200 (OK) --> filen fanns
+			if (request.status == 200) self.getImages(request.responseXML); // status 200 (OK) --> filen fanns
 			else document.getElementById("result").innerHTML = "Den begärda resursen fanns inte.";
 	};
 } // End requestImages
@@ -115,7 +109,7 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 		this.list[this.imgIx].imgUrls.push(urlElems[i].firstChild.data);
 		this.list[this.imgIx].imgCaptions.push(captionElems[i].firstChild.data);
 	}
-	imgIx = 0;
+	this.imgIx = 0;
 	showImage(); // Visa första bilden
 } // End getImages
 
