@@ -55,7 +55,7 @@ function ImageViewer (imgViewer) {
 		imgCaptions: "" // Tom bildtext för den tomma bilden	
 	};
 	
-	this.list[1] = {
+		/* this.list[1] = {
 		imgUrls: "", // Initiera med den tomma bilden
 		imgCaptions: "" // Tom bildtext för den tomma bilden	
 	};
@@ -68,7 +68,7 @@ function ImageViewer (imgViewer) {
 		imgCaptions: "" // Tom bildtext för den tomma bilden	
 	};
 	
-
+*/
 
 	this.imgIx = 0;
 	timer = null;
@@ -103,26 +103,38 @@ ImageViewer.prototype.requestImages = function(file) { // Parametern nr används
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
 ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är hela den inlästa XML-koden
-	this.titleElem.innerHTML = XMLcode.getElementsByTagName("category")[0].firstChild.data;
+	this.titleElem.innerHTML = XMLcode.getElementsByTagName("category")[this.imgIx].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
-	imgUrls = [];		// Nya tomma arrayer för bilder
-	imgCaptions = [];	// och bildtexter
+
+
+
+
+
+	// tror jag blandade ihop det här - urlElems behöver jag nog för att komma åt XML
 	for (let i = 0; i < urlElems.length; i++) {
-		this.list[this.imgIx].imgUrls.push(urlElems[i].firstChild.data);
-		this.list[this.imgIx].imgCaptions.push(captionElems[i].firstChild.data);
-	}
+	 let list = {
+		imgUrls: "", // Initiera med den tomma bilden
+		imgCaptions: "" // Tom bildtext för den tomma bilden	
+	};
+
+		list.imgUrls = urlElems[i].firstChild.data;
+		list.imgCaptions = captionElems[i].firstChild.data;
+
+	this.list.push(list);
+}
+	//testa att pusha här?
+
 	this.imgIx = 0;
-	showImage(); // Visa första bilden
+	this.showImage(); // Visa första bilden
 } // End getImages
 
 // Visa bilden med index imgIx
 ImageViewer.prototype.showImage = function() {
-	alert("" + this.imgIx + "");
 
-	this.imgElem.src = this.list[this.imgIx].imgUrls[this.imgIx];		// hur refererar jag här?
+	this.imgElem.src = this.list[this.imgIx].imgUrls;		// hur refererar jag här?
 	
-	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.imgCaptions[this.imgIx];
+	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.list[this.imgIx].imgCaptions;
 } // End showImage
 
 // Visa föregående bild -- jag måste göra om denna funktion helt
@@ -135,7 +147,6 @@ ImageViewer.prototype.prevImage = function() {
 	else this.imgIx --; // Gå runt till sista bilden
 	*/
 	this.showImage();
-	alert("prev");
 } // End prevImage
 
 // Visa nästa bild
@@ -148,9 +159,7 @@ ImageViewer.prototype.nextImage = function() {
 	else this.imgIx = 0; // Gå runt till första bilden
 	this.imgIx++; // jag som lagt dit detta för att testa
 	*/
-	alert("" + this.imgIx + "");
 	this.showImage();
-	alert("" + this.imgIx + "");
 } // End nextImage
 
 // ----- Extramerit -----
