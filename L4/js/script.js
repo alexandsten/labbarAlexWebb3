@@ -82,7 +82,6 @@ function ImageViewer (imgViewer) {
 	this.captionElem = document.querySelector("#" + imgViewer + "p");	
 
 	//
-	return this;
 }
 
 // ---- end constructor imageViewer -- //
