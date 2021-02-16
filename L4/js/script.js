@@ -107,7 +107,9 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
 
-
+	for (let i = 0; i < 10; i++) {
+		this.list.splice(0);
+	}
 
 
 
@@ -134,7 +136,7 @@ ImageViewer.prototype.showImage = function() {
 
 	this.imgElem.src = this.list[this.imgIx].imgUrls;		// hur refererar jag här?
 	
-	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.list[this.imgIx].imgCaptions;
+	this.captionElem.innerHTML = (this.imgIx) + ". " + this.list[this.imgIx].imgCaptions;
 } // End showImage
 
 // Visa föregående bild -- jag måste göra om denna funktion helt
