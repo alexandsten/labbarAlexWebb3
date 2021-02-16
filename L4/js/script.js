@@ -134,6 +134,9 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 
 // Visa bilden med index imgIx
 ImageViewer.prototype.showImage = function() {
+	if (this.list.length == 1){
+		return;
+	}
 
 	this.imgElem.src = this.list[this.imgIx].imgUrls;		// hur refererar jag här?
 	
