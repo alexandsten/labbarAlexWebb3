@@ -62,15 +62,15 @@ ImageViewer.prototype.requestImages = function(file) { // Parametern nr används
 	};
 } // End requestImages
 
-// Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
-ImageViewer.prototype.getImages = function(jsonCode) { // Parametern XMLcode är hela den inlästa XML-koden
+// Funktion för att tolka json-koden och lägga in innehållet i variablerna för bilderna i bildspelet
+ImageViewer.prototype.getImages = function(jsonCode) { // Parametern jasoncode är hela den inlästa json-koden
 	this.imgIx = 0;  // så att första bilden i listan kommer att visas
 	this.titleElem.innerHTML = JSON.parse(jsonCode).category;	// json kategori
 	let jsonImage = JSON.parse(jsonCode).image; // json image, en array
 
 	this.list.splice(0);	// töm nuvarande list
 
-	// loop som lägger XML urls och captions i objekten i list
+	// loop som lägger json urls och captions i objekten i list
 	for (let i = 0; i < jsonImage.length; i++) {
 		let list = {	// nytt list objekt som ska läggas i this.list
 			imgUrls: "", 
