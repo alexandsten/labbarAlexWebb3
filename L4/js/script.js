@@ -31,11 +31,7 @@ window.addEventListener("load",init);
 
 
 // ---- constructor imageViewer -- parametern är id som används nedan //
-
 function ImageViewer (imgViewer) {
-	/*	var timer;	*/		// Referens till timern för bildspelet
-	/*	timer = null;	*/
-
 	//en array som innehåller objekt, där varje objekt har egenskaperna imgUrls och imgCaptions //
 	this.list = [];	
 	this.list[0] = {
@@ -43,11 +39,12 @@ function ImageViewer (imgViewer) {
 		imgCaptions: "" // Tom bildtext för den tomma bilden	
 	};
 	this.imgIx = 0;
-
 	//parameter används för att välja ut h3, img och p element
 	this.titleElem = document.querySelector("#" + imgViewer + "h3");	
 	this.imgElem = document.querySelector("#" + imgViewer + "img");
 	this.captionElem = document.querySelector("#" + imgViewer + "p");	
+	/*	var timer;	*/		
+	/*	timer = null;	*/
 }
 
 // ---- end constructor imageViewer -- //
