@@ -1,11 +1,8 @@
-// Globala variabler
-
-
 // Initiering av globala variabler och händelsehanterare
 function init() {
 	//----------//
 
-	let imageViewerElem = new ImageViewer("imgViewer ");	// allt ska ligga i detta objekt
+	let imageViewerElem = new ImageViewer("imgViewer ");	// allt i programmet ska ligga i detta objekt
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
 				imageViewerElem.requestImages("xml/images" + this.selectedIndex + ".xml");
@@ -14,8 +11,7 @@ function init() {
 		);
 	document.querySelector("#prevBtn").addEventListener("click",function() { imageViewerElem.prevImage(); });
 	document.querySelector("#nextBtn").addEventListener("click",function() { imageViewerElem.nextImage(); });
-	
-	
+
 	// ----- Extramerit -----
 	/* document.querySelector("#autoBtn").addEventListener("click",
 			function(e) {
@@ -37,24 +33,18 @@ window.addEventListener("load",init);
 // ---- constructor imageViewer -- //
 
 function ImageViewer (imgViewer) {
-/*	var timer;	*/		// Referens till timern för bildspelet
+	/*	var timer;	*/		// Referens till timern för bildspelet
+	/*	timer = null;	*/
 
-	//en array som innehåller objekt, där varje objekt har egenskaperna caption och url
-	this.list = [];
-	
+	//en array som innehåller objekt, där varje objekt har egenskaperna imgUrls och imgCaptions //
+	this.list = [];	
 	this.list[0] = {
 		imgUrls: "pics/blank.png", // Initiera med den tomma bilden
 		imgCaptions: "" // Tom bildtext för den tomma bilden	
 	};
-
 	this.imgIx = 0;
-/*	timer = null;	*/
-	//-------------------------------------------------
-	
-	
-	this.titleElem = document.querySelector("#" + imgViewer + "h3");	// vet ej än
-
-	// ska vara i egenskap som heter "list"
+	//
+	this.titleElem = document.querySelector("#" + imgViewer + "h3");	
 	this.imgElem = document.querySelector("#" + imgViewer + "img");
 	this.captionElem = document.querySelector("#" + imgViewer + "p");	
 
