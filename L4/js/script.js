@@ -70,21 +70,19 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
 
-	for (let i = 0; i < 6; i++) {	// töm nuvarande list
-		this.list.splice(0);
-	}
+	this.list.splice(0);	// töm nuvarande list
+
 	// loop som lägger XML urls och captions i objekten i list
 	for (let i = 0; i < urlElems.length; i++) {
 	 let list = {	// nytt list objekt som ska läggar i this.list
 		imgUrls: "", 
 		imgCaptions: "" 	
 	};
-		list.imgUrls = urlElems[i].firstChild.data;
-		list.imgCaptions = captionElems[i].firstChild.data;
+		list.imgUrls = urlElems[i].firstChild.data;		// lägg xml urls i list
+		list.imgCaptions = captionElems[i].firstChild.data;	// lägg xml caption i list
 
-	this.list.push(list);
+	this.list.push(list);	// pusha listan i i this.list
 }
-	this.imgIx = 0;
 	this.showImage(); // Visa första bilden
 } // End getImages
 
