@@ -5,8 +5,7 @@
 function init() {
 	//----------//
 
-	let imageViewerElem = new ImageViewer("imgViewer ");	// denna kanske alltid ska referas till med this?
-
+	let imageViewerElem = new ImageViewer("imgViewer ");	// allt ska ligga i detta objekt
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
 				imageViewerElem.requestImages("xml/images" + this.selectedIndex + ".xml");
@@ -38,40 +37,18 @@ window.addEventListener("load",init);
 // ---- constructor imageViewer -- //
 
 function ImageViewer (imgViewer) {
-	
-	// dessa ska vara egenskaper för imageViewer, så jag får skriva om dem
-	// ska de vara i parametern eller hur hanterar jag dem? jag får kolla runt bland exemplen
-	// typ = this.titleElem = nånting;??
-	// dom alla andvänds i funktioner (metoder), som tex get images, så måste komma åt dessa därifrån
-
-	var timer;			// Referens till timern för bildspelet
+/*	var timer;	*/		// Referens till timern för bildspelet
 
 	//en array som innehåller objekt, där varje objekt har egenskaperna caption och url
-	// alla ställen där bilder refereras ska detta ersätta / gälla istället
 	this.list = [];
 	
 	this.list[0] = {
 		imgUrls: "pics/blank.png", // Initiera med den tomma bilden
 		imgCaptions: "" // Tom bildtext för den tomma bilden	
 	};
-	
-		/* this.list[1] = {
-		imgUrls: "", // Initiera med den tomma bilden
-		imgCaptions: "" // Tom bildtext för den tomma bilden	
-	};
-	this.list[2] = {
-		imgUrls: "", // Initiera med den tomma bilden
-		imgCaptions: "" // Tom bildtext för den tomma bilden	
-	};
-	this.list[3] = {
-		imgUrls: "", // Initiera med den tomma bilden
-		imgCaptions: "" // Tom bildtext för den tomma bilden	
-	};
-	
-*/
 
 	this.imgIx = 0;
-	timer = null;
+/*	timer = null;	*/
 	//-------------------------------------------------
 	
 	
@@ -110,9 +87,6 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 	for (let i = 0; i < 6; i++) {
 		this.list.splice(0);
 	}
-
-
-
 	// tror jag blandade ihop det här - urlElems behöver jag nog för att komma åt XML
 	for (let i = 0; i < urlElems.length; i++) {
 	 let list = {
@@ -125,8 +99,6 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 
 	this.list.push(list);
 }
-	//testa att pusha här?
-
 	this.imgIx = 0;
 	this.showImage(); // Visa första bilden
 } // End getImages
@@ -159,11 +131,6 @@ ImageViewer.prototype.nextImage = function() {
 	if (this.imgIx < this.list.length - 1) this.imgIx++;
 	else this.imgIx = 0; // Gå runt till första bilden
 
-	/*
-	if (this.imgIx < this.list[this.imgIx].imgUrls.length - 1) this.imgIx++;
-	else this.imgIx = 0; // Gå runt till första bilden
-	this.imgIx++; // jag som lagt dit detta för att testa
-	*/
 	this.showImage();
 } // End nextImage
 
