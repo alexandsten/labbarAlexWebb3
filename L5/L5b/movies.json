@@ -62,8 +62,34 @@
 						"url":"https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3"
 					},
 					"regi":{
-					"name":"David F. Sandberg",
-					"url":"https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr"
+						"name":"David F. Sandberg",
+						"url":"https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr"
+					},
+					"runtime":"1 timme 49 min",
+					"age":"15 årsgräns",
+					"starttime":"20.45"
+				},
+				{
+					"title":{
+						"name": "Annabelle: Creation",
+						"url":"https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3"
+					},
+					"regi":{
+						"name":"David F. Sandberg",
+						"url":"https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr"
+					},
+					"runtime":"1 timme 49 min",
+					"age":"15 årsgräns",
+					"starttime":"20.45"
+				},
+				{
+					"title":{
+						"name": "Annabelle: Creation",
+						"url":"https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3"
+					},
+					"regi":{
+						"name":"David F. Sandberg",
+						"url":"https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr"
 					},
 					"runtime":"1 timme 49 min",
 					"age":"15 årsgräns",
