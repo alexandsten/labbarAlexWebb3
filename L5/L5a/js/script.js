@@ -5,7 +5,7 @@ function init() {
 	let imageViewerElem = new ImageViewer("imgViewer ");	// allt i programmet ska ligga i detta objekt
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
-				imageViewerElem.requestImages("xml/images" + this.selectedIndex + ".xml");
+				imageViewerElem.requestImages("json/images" + this.selectedIndex + ".json");
 				this.selectedIndex = 0;
 			}
 		);
@@ -57,28 +57,27 @@ ImageViewer.prototype.requestImages = function(file) { // Parametern nr används
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4) // readyState 4 --> kommunikationen är klar
-			if (request.status == 200) self.getImages(request.responseXML); // status 200 (OK) --> filen fanns
+			if (request.status == 200) self.getImages(request.responseText); // status 200 (OK) --> filen fanns
 			else document.getElementById("result").innerHTML = "Den begärda resursen fanns inte.";
 	};
 } // End requestImages
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
-ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är hela den inlästa XML-koden
+ImageViewer.prototype.getImages = function(jsonCode) { // Parametern XMLcode är hela den inlästa XML-koden
 	this.imgIx = 0;  // så att första bilden i listan kommer att visas
-	this.titleElem.innerHTML = XMLcode.getElementsByTagName("category")[this.imgIx].firstChild.data;
-	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
-	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
+	this.titleElem.innerHTML = JSON.parse(jsonCode).category;
+	let jsonImage = JSON.parse(jsonCode).image; 
 
 	this.list.splice(0);	// töm nuvarande list
 
 	// loop som lägger XML urls och captions i objekten i list
-	for (let i = 0; i < urlElems.length; i++) {
+	for (let i = 0; i < jsonImage.length; i++) {
 		let list = {	// nytt list objekt som ska läggas i this.list
 			imgUrls: "", 
 			imgCaptions: "" 	
 		};
-		list.imgUrls = urlElems[i].firstChild.data;		// lägg xml urls i list
-		list.imgCaptions = captionElems[i].firstChild.data;	// lägg xml caption i list
+		list.imgUrls = jsonImage[i].url;		// lägg xml urls i list
+		list.imgCaptions = jsonImage[i].caption;	// lägg xml caption i list
 		this.list.push(list);	// pusha listan i i this.list
 	}
 	this.showImage(); // Visa första bilden i listan
