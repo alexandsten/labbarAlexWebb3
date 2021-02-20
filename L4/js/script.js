@@ -79,7 +79,7 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 		};
 		list.imgUrls = urlElems[i].firstChild.data;		// lägg xml urls i list
 		list.imgCaptions = captionElems[i].firstChild.data;	// lägg xml caption i list
-		this.list.push(list);	// pusha listan i i this.list
+		this.list.push(list);	// pusha listan i this.list
 	}
 	this.showImage(); // Visa första bilden i listan
 } // End getImages

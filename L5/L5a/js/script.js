@@ -65,8 +65,8 @@ ImageViewer.prototype.requestImages = function(file) { // Parametern nr används
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
 ImageViewer.prototype.getImages = function(jsonCode) { // Parametern XMLcode är hela den inlästa XML-koden
 	this.imgIx = 0;  // så att första bilden i listan kommer att visas
-	this.titleElem.innerHTML = JSON.parse(jsonCode).category;
-	let jsonImage = JSON.parse(jsonCode).image; 
+	this.titleElem.innerHTML = JSON.parse(jsonCode).category;	// json kategori
+	let jsonImage = JSON.parse(jsonCode).image; // json image, en array
 
 	this.list.splice(0);	// töm nuvarande list
 
@@ -76,9 +76,9 @@ ImageViewer.prototype.getImages = function(jsonCode) { // Parametern XMLcode är
 			imgUrls: "", 
 			imgCaptions: "" 	
 		};
-		list.imgUrls = jsonImage[i].url;		// lägg xml urls i list
-		list.imgCaptions = jsonImage[i].caption;	// lägg xml caption i list
-		this.list.push(list);	// pusha listan i i this.list
+		list.imgUrls = jsonImage[i].url;		// lägg json urls i list
+		list.imgCaptions = jsonImage[i].caption;	// lägg json caption i list
+		this.list.push(list);	// pusha listan i this.list
 	}
 	this.showImage(); // Visa första bilden i listan
 } // End getImages
