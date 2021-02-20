@@ -74,38 +74,30 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 
 	// loop som lägger XML urls och captions i objekten i list
 	for (let i = 0; i < urlElems.length; i++) {
-	 let list = {	// nytt list objekt som ska läggar i this.list
-		imgUrls: "", 
-		imgCaptions: "" 	
-	};
+		let list = {	// nytt list objekt som ska läggar i this.list
+			imgUrls: "", 
+			imgCaptions: "" 	
+		};
 		list.imgUrls = urlElems[i].firstChild.data;		// lägg xml urls i list
 		list.imgCaptions = captionElems[i].firstChild.data;	// lägg xml caption i list
-
-	this.list.push(list);	// pusha listan i i this.list
-}
+		this.list.push(list);	// pusha listan i i this.list
+	}
 	this.showImage(); // Visa första bilden
 } // End getImages
 
 // Visa bilden med index imgIx
 ImageViewer.prototype.showImage = function() {
-	if (this.list.length == 1){
+	if (this.list.length == 1){		// om inget ämne är valt går det ej att visa bilder
 		return;
 	}
-
-	this.imgElem.src = this.list[this.imgIx].imgUrls;		// hur refererar jag här?
-	
-	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.list[this.imgIx].imgCaptions;
+	this.imgElem.src = this.list[this.imgIx].imgUrls;	// visa listans bild
+	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.list[this.imgIx].imgCaptions;	// visa listans caption
 } // End showImage
 
 // Visa föregående bild -- jag måste göra om denna funktion helt
 ImageViewer.prototype.prevImage = function() {
-
 	if (this.imgIx > 0) this.imgIx--;
 	else this.imgIx = this.list.length - 1; // Gå runt till sista bilden
-	/*
-	if (this.imgIx > 0) this.list[this.imgIx];
-	else this.imgIx --; // Gå runt till sista bilden
-	*/
 	this.showImage();
 } // End prevImage
 
@@ -113,7 +105,6 @@ ImageViewer.prototype.prevImage = function() {
 ImageViewer.prototype.nextImage = function() {
 	if (this.imgIx < this.list.length - 1) this.imgIx++;
 	else this.imgIx = 0; // Gå runt till första bilden
-
 	this.showImage();
 } // End nextImage
 
