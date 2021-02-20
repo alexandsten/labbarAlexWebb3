@@ -49,7 +49,6 @@ function ImageViewer (imgViewer) {
 
 // ---- end constructor imageViewer -- //
 
-
 // Gör ett Ajax-anrop för att läsa in begärd fil
 ImageViewer.prototype.requestImages = function(file) { // Parametern nr används i url:en för den fil som ska läsas in
 	self = this;	// spara this i self variabel
@@ -65,7 +64,7 @@ ImageViewer.prototype.requestImages = function(file) { // Parametern nr används
 
 // Funktion för att tolka XML-koden och lägga in innehållet i variablerna för bilderna i bildspelet
 ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är hela den inlästa XML-koden
-	this.imgIx = 0;
+	this.imgIx = 0;  // så att första bilden i listan kommer att visas
 	this.titleElem.innerHTML = XMLcode.getElementsByTagName("category")[this.imgIx].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
@@ -74,7 +73,7 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 
 	// loop som lägger XML urls och captions i objekten i list
 	for (let i = 0; i < urlElems.length; i++) {
-		let list = {	// nytt list objekt som ska läggar i this.list
+		let list = {	// nytt list objekt som ska läggas i this.list
 			imgUrls: "", 
 			imgCaptions: "" 	
 		};
@@ -82,7 +81,7 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 		list.imgCaptions = captionElems[i].firstChild.data;	// lägg xml caption i list
 		this.list.push(list);	// pusha listan i i this.list
 	}
-	this.showImage(); // Visa första bilden
+	this.showImage(); // Visa första bilden i listan
 } // End getImages
 
 // Visa bilden med index imgIx
@@ -94,17 +93,17 @@ ImageViewer.prototype.showImage = function() {
 	this.captionElem.innerHTML = (this.imgIx+1) + ". " + this.list[this.imgIx].imgCaptions;	// visa listans caption
 } // End showImage
 
-// Visa föregående bild -- jag måste göra om denna funktion helt
+// Visa föregående bild 
 ImageViewer.prototype.prevImage = function() {
-	if (this.imgIx > 0) this.imgIx--;
-	else this.imgIx = this.list.length - 1; // Gå runt till sista bilden
+	if (this.imgIx > 0) this.imgIx--;	// om this.imgIx är större än noll, -1 på imgIx
+	else this.imgIx = this.list.length - 1; // annars samma som this.list längd -1,  Gå runt till sista bilden
 	this.showImage();
 } // End prevImage
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
-	if (this.imgIx < this.list.length - 1) this.imgIx++;
-	else this.imgIx = 0; // Gå runt till första bilden
+	if (this.imgIx < this.list.length - 1) this.imgIx++;	// om this.imgIx är lägre än this.list längd - +1 på imgIx
+	else this.imgIx = 0; // annars är this.imgIx 0, Gå runt till första bilden
 	this.showImage();
 } // End nextImage
 
