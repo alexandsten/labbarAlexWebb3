@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE movielist SYSTEM "genre.dtd">
-<movielist>
-    <genrefilmer>
+<!DOCTYPE moviecontent SYSTEM "genre.dtd">
+<moviecontent>
+    <movielist>
         <film>     
             <title url="https://www.imdb.com/title/tt2322441/?ref_=nv_sr_srsg_0">Fifty Shades of Grey</title>
             <regi url="https://www.imdb.com/name/nm0853374/?ref_=tt_ov_dr">Sam Taylor-Johnson</regi>
@@ -30,7 +30,7 @@
             <age>11 årsgräns</age>
             <starttime>18.15</starttime>
         </film>
-    </genrefilmer>
+    </movielist>
     <genredescription>En filmgenre som ger tittaren fjärilar i magen och upplevelser av dramatiska kärleksaffärer.</genredescription>
     <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/"/>
-</movielist>
+</moviecontent>

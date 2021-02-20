@@ -1,5 +1,5 @@
-<!ELEMENT movielist (genrefilmer, genredescription, kontakt)>
-<!ELEMENT genrefilmer (film+)>
+<!ELEMENT moviecontent (movielist, genredescription, kontakt)>
+<!ELEMENT movielist (film+)>
 	<!ELEMENT film (title, regi, runtime, age, starttime)>
 			<!ELEMENT title (#PCDATA)>
 			<!ATTLIST title url CDATA #REQUIRED>

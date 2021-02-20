@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE movielist SYSTEM "genre.dtd">
-<movielist>
-    <genrefilmer>
+<!DOCTYPE moviecontent SYSTEM "genre.dtd">
+<moviecontent>
+    <movielist>
         <film>     
             <title url="https://www.imdb.com/title/tt3371366/?ref_=nv_sr_srsg_0">Transformers: The Last Knight</title>
             <regi url="https://www.imdb.com/name/nm0000881/?ref_=tt_ov_dr">Michael Bay</regi>
@@ -23,7 +23,7 @@
             <age>15 årsgräns</age>
             <starttime>20.00</starttime>
         </film>
-    </genrefilmer>
+    </movielist>
     <genredescription>En filmgenre som ger tittaren en fartfylld upplevelse med adrenalin och explosioner.</genredescription>
     <kontakt url="https://www.filmstaden.se/kundservice/kontakta-oss/"/>
-</movielist>
+</moviecontent>
