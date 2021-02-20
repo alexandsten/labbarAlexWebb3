@@ -70,16 +70,15 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
 
-	for (let i = 0; i < 6; i++) {
+	for (let i = 0; i < 6; i++) {	// töm nuvarande list
 		this.list.splice(0);
 	}
-	// tror jag blandade ihop det här - urlElems behöver jag nog för att komma åt XML
+	// loop som lägger XML urls och captions i objekten i list
 	for (let i = 0; i < urlElems.length; i++) {
-	 let list = {
-		imgUrls: "", // Initiera med den tomma bilden
-		imgCaptions: "" // Tom bildtext för den tomma bilden	
+	 let list = {	// nytt list objekt som ska läggar i this.list
+		imgUrls: "", 
+		imgCaptions: "" 	
 	};
-
 		list.imgUrls = urlElems[i].firstChild.data;
 		list.imgCaptions = captionElems[i].firstChild.data;
 
