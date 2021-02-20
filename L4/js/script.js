@@ -52,7 +52,7 @@ function ImageViewer (imgViewer) {
 
 // Gör ett Ajax-anrop för att läsa in begärd fil
 ImageViewer.prototype.requestImages = function(file) { // Parametern nr används i url:en för den fil som ska läsas in
-	self = this;
+	self = this;	// spara this i self variabel
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET",file,true);
 	request.send(null); // Skicka begäran till servern
