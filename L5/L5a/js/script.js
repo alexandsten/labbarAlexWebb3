@@ -5,7 +5,7 @@ function init() {
 	let imageViewerElem = new ImageViewer("imgViewer ");	// allt i programmet ska ligga i detta objekt
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
-				imageViewerElem.requestImages("json/images" + this.selectedIndex + ".json");
+				imageViewerElem.requestImages("json/images" + this.selectedIndex + ".json"); // selected index väljer json fil
 				this.selectedIndex = 0;
 			}
 		);
@@ -67,7 +67,6 @@ ImageViewer.prototype.getImages = function(jsonCode) { // Parametern jasoncode �
 	this.imgIx = 0;  // så att första bilden i listan kommer att visas
 	this.titleElem.innerHTML = JSON.parse(jsonCode).category;	// json kategori
 	let jsonImage = JSON.parse(jsonCode).image; // json image, en array
-
 	this.list.splice(0);	// töm nuvarande list
 
 	// loop som lägger json urls och captions i objekten i list
@@ -94,15 +93,15 @@ ImageViewer.prototype.showImage = function() {
 
 // Visa föregående bild 
 ImageViewer.prototype.prevImage = function() {
-	if (this.imgIx > 0) this.imgIx--;	// om this.imgIx är större än noll, -1 på imgIx
-	else this.imgIx = this.list.length - 1; // annars samma som this.list längd -1,  Gå runt till sista bilden
+	if (this.imgIx > 0) this.imgIx--;	
+	else this.imgIx = this.list.length - 1; //  Gå runt till sista bilden
 	this.showImage();
 } // End prevImage
 
 // Visa nästa bild
 ImageViewer.prototype.nextImage = function() {
-	if (this.imgIx < this.list.length - 1) this.imgIx++;	// om this.imgIx är lägre än this.list längd - +1 på imgIx
-	else this.imgIx = 0; // annars är this.imgIx 0, Gå runt till första bilden
+	if (this.imgIx < this.list.length - 1) this.imgIx++;
+	else this.imgIx = 0; // Gå runt till första bilden
 	this.showImage();
 } // End nextImage
 

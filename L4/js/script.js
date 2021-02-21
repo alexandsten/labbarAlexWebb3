@@ -5,7 +5,7 @@ function init() {
 	let imageViewerElem = new ImageViewer("imgViewer ");	// allt i programmet ska ligga i detta objekt
 	document.querySelector("#categoryMenu").addEventListener("change",
 			function() {
-				imageViewerElem.requestImages("xml/images" + this.selectedIndex + ".xml");
+				imageViewerElem.requestImages("xml/images" + this.selectedIndex + ".xml");	// selected index väljer xml fil
 				this.selectedIndex = 0;
 			}
 		);
@@ -68,7 +68,6 @@ ImageViewer.prototype.getImages = function(XMLcode) { // Parametern XMLcode är 
 	this.titleElem.innerHTML = XMLcode.getElementsByTagName("category")[this.imgIx].firstChild.data;
 	let urlElems = XMLcode.getElementsByTagName("url"); // Alla url-element
 	let captionElems = XMLcode.getElementsByTagName("caption"); // Alla caption-element
-
 	this.list.splice(0);	// töm nuvarande list
 
 	// loop som lägger XML urls och captions i objekten i list
@@ -95,8 +94,8 @@ ImageViewer.prototype.showImage = function() {
 
 // Visa föregående bild 
 ImageViewer.prototype.prevImage = function() {
-	if (this.imgIx > 0) this.imgIx--;	// om this.imgIx är större än noll, -1 på imgIx
-	else this.imgIx = this.list.length - 1; // annars samma som this.list längd -1,  Gå runt till sista bilden
+	if (this.imgIx > 0) this.imgIx--;	
+	else this.imgIx = this.list.length - 1; //  Gå runt till sista bilden
 	this.showImage();
 } // End prevImage
 
