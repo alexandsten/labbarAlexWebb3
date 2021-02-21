@@ -71,29 +71,29 @@
 				},
 				{
 					"title":{
-						"name": "Annabelle: Creation",
-						"url":"https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3"
+						"name": "IT 2",
+						"url":"https://www.imdb.com/title/tt7349950/"
 					},
 					"regi":{
-						"name":"David F. Sandberg",
+						"name":"Andy Muschietti",
 						"url":"https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr"
 					},
-					"runtime":"1 timme 49 min",
+					"runtime":"2 timmar 49 min",
 					"age":"15 årsgräns",
-					"starttime":"20.45"
+					"starttime":"21.00"
 				},
 				{
 					"title":{
-						"name": "Annabelle: Creation",
-						"url":"https://www.imdb.com/title/tt5140878/?ref_=nv_sr_srsg_3"
+						"name": "Halloween",
+						"url":"https://www.imdb.com/title/tt1502407/?ref_=nv_sr_srsg_8"
 					},
 					"regi":{
-						"name":"David F. Sandberg",
-						"url":"https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr"
+						"name":"David Gordon Green",
+						"url":"https://www.imdb.com/name/nm0337773/?ref_=tt_ov_dr"
 					},
-					"runtime":"1 timme 49 min",
+					"runtime":"1 timmar 46 min",
 					"age":"15 årsgräns",
-					"starttime":"20.45"
+					"starttime":"21.15"
 				}
 			],
 			"genredescription":"En filmgenre som ger tittaren en rysligt hårresande upplevelse.",
