@@ -5,16 +5,12 @@ var choice;
 function init() {
     movieElem = document.getElementById("movieList");
     movieElem.innerHTML = "";
-    choice = 0;
     document.getElementById("knapp1").addEventListener("click",requestData);
     document.getElementById("knapp2").addEventListener("click",requestData);
     document.getElementById("knapp3").addEventListener("click",requestData);
 }
 
 window.addEventListener("load",init); // init aktiveras då sidan är inladdad
-
-
-
 
 function requestData() {
     if (this.id == "knapp1") {

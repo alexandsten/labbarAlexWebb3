@@ -14,9 +14,10 @@ h1 {
     margin-left: 100px;
     margin-top: 50px;
     width: 200px;
-    height: 100px;
+    height: 80px;
     border-radius: 20%;
-    background-color: red;
+    background-color: rgb(6, 16, 49);
+    color: honeydew;
 }
 #knapp2 {
     margin-left: 100px;
@@ -24,13 +25,15 @@ h1 {
     width: 200px;
     height: 100px;
     border-radius: 20%;
-    background-color: red;
+    background-color: rgb(6, 16, 49);
+    color: honeydew;
 }
 #knapp3 {
     margin-left: 100px;
     margin-top: 50px;
     width: 200px;
-    height: 100px;
+    height: 80px;
     border-radius: 20%;
-    background-color: red;
+    background-color: rgb(6, 16, 49);
+    color: honeydew;
 }
