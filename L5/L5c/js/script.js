@@ -40,13 +40,13 @@ function showMovies(jsonCode) {
 
 
         "<p><b>Filmtitel:</b> " + movies[i].film[i].title.name + "</p>" +
-        "<p><b>Plats:</b> " + movies[i].film[i].title.url + "</p>" +
-        "<p><b>Pris:</b> " + movies[i].film[i].regi.name +  "</p>" +   
-        "<p><b>Pris:</b> " + movies[i].film[i].regi.url +  "</p>" +     
-			"<p><b>Beskrivning:</b> " + movies[i].film[i].runtime + "</p>" +
-			"<p><b>Plats:</b> " + movies[i].film[i].age + "</p>" +
-			"<p><b>Pris:</b> " + movies[i].film[i].starttime +  "</p>" +
-			"<hr>" +
+        "<p><b>Länk:</b> " + movies[i].film[i].title.url + "</p>" +
+        "<p><b>Regissör:</b> " + movies[i].film[i].regi.name +  "</p>" +   
+        "<p><b>Länk:</b> " + movies[i].film[i].regi.url +  "</p>" +     
+		"<p><b>Längd:</b> " + movies[i].film[i].runtime + "</p>" +
+		"<p><b>Åldersgräns:</b> " + movies[i].film[i].age + "</p>" +
+		"<p><b>Starttid:</b> " + movies[i].film[i].starttime +  "</p>" +
+		"<hr>" +
 
             "<p><b>Beskrivning:</b> " + movies[i].film[1].title.name + "</p>" +
             "<p><b>Plats:</b> " + movies[i].film[1].title.url + "</p>" +
@@ -65,7 +65,7 @@ function showMovies(jsonCode) {
                     "<p><b>Plats:</b> " + movies[i].film[2].age + "</p>" +
                     "<p><b>Pris:</b> " + movies[i].film[2].starttime +  "</p>" +
                     "<hr>" +
-                    "<p><b>Pris:</b> " + movies[i].contact.url +  "</p>" +
+                    "<p><b>Kontakt:</b> " + movies[i].contact.url +  "</p>" +
                     "<h3>" + movies[0].genredescription + "</h3>" 
                     ;
 	}
