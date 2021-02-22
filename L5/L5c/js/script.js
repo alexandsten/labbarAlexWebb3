@@ -39,33 +39,33 @@ function showMovies(jsonCode) {
 		HTMLcode +=  
 
 
-        "<p><b>Filmtitel:</b> " + movies[i].film[i].title.name + "</p>" +
-        "<p><b>Länk:</b> " + movies[i].film[i].title.url + "</p>" +
-        "<p><b>Regissör:</b> " + movies[i].film[i].regi.name +  "</p>" +   
-        "<p><b>Länk:</b> " + movies[i].film[i].regi.url +  "</p>" +     
+        "<p><b>Filmtitel:</b> " +
+        "<a href = " + movies[i].film[i].title.url + " target = blank>" +  movies[i].film[i].title.name + "</a>" +  "</p>" +
+        "<p><b>Regissör:</b> " + 
+        "<a href = " + movies[i].film[i].regi.url + " target = blank>" + movies[i].film[i].regi.name   + "</a>" +  "</p>" + 
 		"<p><b>Längd:</b> " + movies[i].film[i].runtime + "</p>" +
 		"<p><b>Åldersgräns:</b> " + movies[i].film[i].age + "</p>" +
 		"<p><b>Starttid:</b> " + movies[i].film[i].starttime +  "</p>" +
 		"<hr>" +
 
-        "<p><b>Filmtitel:</b> " + movies[i].film[1].title.name + "</p>" +
-        "<p><b>Länk:</b> " + movies[i].film[1].title.url + "</p>" +
-        "<p><b>Regissör:</b> " + movies[i].film[1].regi.name +  "</p>" +   
-        "<p><b>Länk:</b> " + movies[i].film[1].regi.url +  "</p>" +     
+        "<p><b>Filmtitel:</b> " + 
+        "<a href = " + movies[i].film[1].title.url + " target = blank>" + movies[i].film[1].title.name   + "</a>" + "</p>" +
+        "<p><b>Regissör:</b> " +  
+        "<a href = " + movies[i].film[1].regi.url + " target = blank>" + movies[i].film[1].regi.name + "</a>" +     "</p>" +
         "<p><b>Längd:</b> " + movies[i].film[1].runtime + "</p>" +
         "<p><b>Åldersgräns:</b> " + movies[i].film[1].age + "</p>" +
         "<p><b>Starttid:</b> " + movies[i].film[1].starttime +  "</p>" +
                 "<hr>" +
 
-                "<p><b>Filmtitel:</b> " + movies[i].film[2].title.name + "</p>" +
-                "<p><b>Länk:</b> " + movies[i].film[2].title.url + "</p>" +
-                "<p><b>Regissör:</b> " + movies[i].film[2].regi.name +  "</p>" +   
-                "<p><b>Länk:</b> " + movies[i].film[2].regi.url +  "</p>" +     
+                "<p><b>Filmtitel:</b> " + 
+                "<a href = " + movies[i].film[2].title.url + " target = blank>" + movies[i].film[2].title.name + "</a>" + "</p>" +
+                "<p><b>Regissör:</b> " +
+                "<a href = " + movies[i].film[2].regi.url + " target = blank>" + movies[i].film[2].regi.name + "</a>" +    "</p>" +
                 "<p><b>Längd:</b> " + movies[i].film[2].runtime + "</p>" +
                 "<p><b>Åldersgräns:</b> " + movies[i].film[2].age + "</p>" +
                 "<p><b>Starttid:</b> " + movies[i].film[2].starttime +  "</p>" +
                     "<hr>" +
-                    "<p><b>Kontakt:</b> " + movies[i].contact.url +  "</p>" +
+                    "<a href = " + movies[i].film[i].regi.url + " target = blank>" + movies[i].contact.url + "</a>" +     
                     "<h3>" + movies[0].genredescription + "</h3>" 
                     ;
 	}
