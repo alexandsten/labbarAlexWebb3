@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
 body {
-    background-color: mediumpurple;
+    background-color: rgb(112, 117, 129);
+}
+
+h1 {
+    font: size 47px;;
+    font-family: cursive;
+    margin: 20px;
 }
 
 #knapp1 {
@@ -10,7 +16,7 @@ body {
     width: 200px;
     height: 100px;
     border-radius: 20%;
-    background-color: orange;
+    background-color: red;
 }
 #knapp2 {
     margin-left: 100px;
@@ -18,7 +24,7 @@ body {
     width: 200px;
     height: 100px;
     border-radius: 20%;
-    background-color: orange;
+    background-color: red;
 }
 #knapp3 {
     margin-left: 100px;
@@ -26,5 +32,5 @@ body {
     width: 200px;
     height: 100px;
     border-radius: 20%;
-    background-color: orange;
+    background-color: red;
 }
