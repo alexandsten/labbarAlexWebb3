@@ -43,9 +43,9 @@ function showMovies(jsonCode) {
 		HTMLcode +=  
 
         "<p><b>Filmtitel:</b> " +
-        "<a href = " + movies[i].film[i].title.url + ">" +  movies[i].film[choice].title.name + "</a>" +  "</p>" +
+        "<a href = " + movies[i].film[choice].title.url + ">" +  movies[i].film[choice].title.name + "</a>" +  "</p>" +
         "<p><b>Regissör:</b> " + 
-        "<a href = " + movies[i].film[i].regi.url + ">" + movies[i].film[choice].regi.name   + "</a>" +  "</p>" + 
+        "<a href = " + movies[i].film[choice].regi.url + ">" + movies[i].film[choice].regi.name   + "</a>" +  "</p>" + 
 		"<p><b>Längd:</b> " + movies[i].film[choice].runtime + "</p>" +
 		"<p><b>Åldersgräns:</b> " + movies[i].film[choice].age + "</p>" +
 		"<p><b>Starttid:</b> " + movies[i].film[choice].starttime +  "</p>" +
