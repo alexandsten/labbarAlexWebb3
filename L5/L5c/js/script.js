@@ -27,8 +27,6 @@ function requestData() {
 
 function showMovies(jsonCode) {
   /*  titleElem.innerHTML = JSON.parse(jsonCode);	// json kategori    */
-	let jsonMovieList = JSON.parse(jsonCode).movieList; 
-    let description = JSON.parse(jsonCode).genredescription;
     let HTMLcode = "";
 
     let movies = JSON.parse(jsonCode).movielist;
