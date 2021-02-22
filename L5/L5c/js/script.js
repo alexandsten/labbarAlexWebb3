@@ -1,12 +1,14 @@
 // globala
-
 var movieElem;
-
+var choice;
 
 function init() {
     movieElem = document.getElementById("movieList");
     movieElem.innerHTML = "";
-    document.getElementById("knapp").addEventListener("click",requestData)
+    choice = 0;
+    document.getElementById("knapp1").addEventListener("click",requestData);
+    document.getElementById("knapp2").addEventListener("click",requestData);
+    document.getElementById("knapp3").addEventListener("click",requestData);
 }
 
 window.addEventListener("load",init); // init aktiveras då sidan är inladdad
@@ -15,6 +17,15 @@ window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 
 
 function requestData() {
+    if (this.id == "knapp1") {
+        choice = 0;
+    }
+    if (this.id == "knapp2") {
+        choice = 1;
+    }
+    if (this.id == "knapp3") {
+        choice = 2;
+    }
     let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET","json/movies.json",true);
 	request.send(null); // Skicka begäran till servern
@@ -33,38 +44,19 @@ function showMovies(jsonCode) {
 
 	for (let i = 0; i < movies.length; i++) {
 		// Referenser till olika egenskaper i aktuellt accomodation-objekt
-		
 		HTMLcode +=  
 
-
         "<p><b>Filmtitel:</b> " +
-        "<a href = " + movies[i].film[i].title.url + ">" +  movies[i].film[i].title.name + "</a>" +  "</p>" +
+        "<a href = " + movies[i].film[i].title.url + ">" +  movies[i].film[choice].title.name + "</a>" +  "</p>" +
         "<p><b>Regissör:</b> " + 
-        "<a href = " + movies[i].film[i].regi.url + ">" + movies[i].film[i].regi.name   + "</a>" +  "</p>" + 
-		"<p><b>Längd:</b> " + movies[i].film[i].runtime + "</p>" +
-		"<p><b>Åldersgräns:</b> " + movies[i].film[i].age + "</p>" +
-		"<p><b>Starttid:</b> " + movies[i].film[i].starttime +  "</p>" +
+        "<a href = " + movies[i].film[i].regi.url + ">" + movies[i].film[choice].regi.name   + "</a>" +  "</p>" + 
+		"<p><b>Längd:</b> " + movies[i].film[choice].runtime + "</p>" +
+		"<p><b>Åldersgräns:</b> " + movies[i].film[choice].age + "</p>" +
+		"<p><b>Starttid:</b> " + movies[i].film[choice].starttime +  "</p>" +
 		"<hr>" +
 
-        "<p><b>Filmtitel:</b> " + 
-        "<a href = " + movies[i].film[1].title.url + ">" + movies[i].film[1].title.name   + "</a>" + "</p>" +
-        "<p><b>Regissör:</b> " +  
-        "<a href = " + movies[i].film[1].regi.url + ">" + movies[i].film[1].regi.name + "</a>" +     "</p>" +
-        "<p><b>Längd:</b> " + movies[i].film[1].runtime + "</p>" +
-        "<p><b>Åldersgräns:</b> " + movies[i].film[1].age + "</p>" +
-        "<p><b>Starttid:</b> " + movies[i].film[1].starttime +  "</p>" +
-                "<hr>" +
-
-                "<p><b>Filmtitel:</b> " + 
-                "<a href = " + movies[i].film[2].title.url + ">" + movies[i].film[2].title.name + "</a>" + "</p>" +
-                "<p><b>Regissör:</b> " +
-                "<a href = " + movies[i].film[2].regi.url + ">" + movies[i].film[2].regi.name + "</a>" +    "</p>" +
-                "<p><b>Längd:</b> " + movies[i].film[2].runtime + "</p>" +
-                "<p><b>Åldersgräns:</b> " + movies[i].film[2].age + "</p>" +
-                "<p><b>Starttid:</b> " + movies[i].film[2].starttime +  "</p>" +
-                    "<hr>" +
-                    "<a href = " + movies[i].contact.url + " target = blank>" + "Kontakt" + "</a>" +     
-                    "<h3>" + movies[0].genredescription + "</h3>" 
+         "<a href = " + movies[i].contact.url + " target = blank>" + "Kontakt" + "</a>" +     
+        "<h3>" + movies[i].genredescription + "</h3>" 
                     ;
 	}
 
