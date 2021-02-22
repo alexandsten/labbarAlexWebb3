@@ -22,7 +22,7 @@
 					},
 					"regi":{
 						"name":"Andy Muschietti",
-						"url":"https://www.imdb.com/name/nm2497546/?ref_=tt_ov_dr"
+						"url":"https://www.imdb.com/name/nm0615592/?ref_=nv_sr_srsg_0"
 					},
 					"runtime":"2 timmar 49 min",
 					"age":"15 årsgräns",
@@ -31,11 +31,11 @@
 				{
 					"title":{
 						"name": "Halloween",
-						"url":"https://www.imdb.com/title/tt1502407/?ref_=nv_sr_srsg_8"
+						"url":"https://www.imdb.com/title/tt1502407/?ref_=nm_knf_i2"
 					},
 					"regi":{
 						"name":"David Gordon Green",
-						"url":"https://www.imdb.com/name/nm0337773/?ref_=tt_ov_dr"
+						"url":"https://www.imdb.com/name/nm0337773/"
 					},
 					"runtime":"1 timmar 46 min",
 					"age":"15 årsgräns",
@@ -49,3 +49,4 @@
 		}
 	]
 }
+
