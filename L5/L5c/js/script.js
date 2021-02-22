@@ -65,7 +65,7 @@ function showMovies(jsonCode) {
                 "<p><b>Åldersgräns:</b> " + movies[i].film[2].age + "</p>" +
                 "<p><b>Starttid:</b> " + movies[i].film[2].starttime +  "</p>" +
                     "<hr>" +
-                    "<a href = " + movies[i].film[i].regi.url + " target = blank>" + movies[i].contact.url + "</a>" +     
+                    "<a href = " + movies[i].contact.url + " target = blank>" + "Kontakt" + "</a>" +     
                     "<h3>" + movies[0].genredescription + "</h3>" 
                     ;
 	}
