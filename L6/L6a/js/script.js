@@ -98,7 +98,7 @@ function enlargeImg() {
 function requestLocation(id) {
 
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
-	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation=" + tags + "&per_page=5&page=" + pageNr + "&format=json&nojsoncallback=1",true);
+	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation&photo.id_=" + id + "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4)
@@ -111,7 +111,11 @@ function requestLocation(id) {
 // Visa koordinater
 function showLocation(response) {
 	// endast lat och lang i textformat - i vilket id?
-	flickrImgElem.innerHTML = "Texten blir " + response + " lol";
+	if (response.stat != "ok") {
+		alert("Något blev fel vid anropet till Flickr");
+		return;
+	}
+	
 } // End showLocation
 
 // Ajax-begäran av nya bilder
