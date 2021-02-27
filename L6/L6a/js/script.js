@@ -42,7 +42,7 @@ function requestNewImgs() {
 	flickrImgElem.innerHTML = "<img src='img/progress.gif' style='border:none;'>";
 	pageNrElem.innerHTML = pageNr;
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
-	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.search&tags=" + tags + "&per_page=5&page=" + pageNr +  "&format=json&nojsoncallback=1",true);
+	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.search&tags=" + tags +  "&per_page=5&page=" + pageNr +  "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4)
@@ -98,7 +98,7 @@ function enlargeImg() {
 function requestLocation(id) {
 
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
-	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation&photo_id=" + id + "has_geo=1" + "&format=json&nojsoncallback=1",true);
+	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation&photo_id=" + id  + "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4)
