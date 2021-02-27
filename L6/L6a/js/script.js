@@ -123,6 +123,8 @@ function showLocation(response) {
 
 	imgLocationElem.innerHTML = HTMLcode;
 
+	requestImgsByLocation(latitude,longitude)
+
 	/*
 	{"photo":{"id":"50985171202","location":{"latitude":"36.838810","longitude":"-84.344916","accuracy":"15","context":"0","locality":{"_content":"Honeybee"},"county":{"_content":"McCreary"},"region":{"_content":"Kentucky"},"country":{"_content":"United States"},"neighbourhood":{"_content":""}}},"stat":"ok"}
 	*/
@@ -131,8 +133,14 @@ function showLocation(response) {
 
 // Ajax-begäran av nya bilder
 function requestImgsByLocation(lat,lon) {
-	// showlocation plockar ju ut lat och lang i textformat, använd dessa för att göra denna sökning
+	/*
+	"&bbox=" long,lat,long,lat
 
+	"&geo_context"
+
+
+
+	*/
 } // End requestImgsByLocation
 
 // Tolka svaret och visa upp bilderna.
