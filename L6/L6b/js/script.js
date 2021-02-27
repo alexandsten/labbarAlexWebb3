@@ -10,7 +10,7 @@ const markerData = [	// Data för markeringar som hör till knapparna
 			{position:{lat:0.000000,lng:0.000000},title:"x"}
 		];
 var mapLocationElem;			// Element för utskrift av koordinater
-var myApiKey = "DIN-API-KEY";	// Ersätt DIN-API-KEY med din egen Flickr API key
+var myApiKey = "e8e9fc8c2c5dbe8d7e0d839cc15ee0c9";	// Ersätt DIN-API-KEY med din egen Flickr API key
 var flickrImgElem;				// Referens till element där bilderna ska visas
 
 // Initiering av programmet

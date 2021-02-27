@@ -1,5 +1,5 @@
 // Globala variabler
-var myApiKey = "DIN-API-KEY";	// Ersätt DIN-API-KEY med din egen API key
+var myApiKey = "e8e9fc8c2c5dbe8d7e0d839cc15ee0c9";	// Ersätt DIN-API-KEY med din egen API key
 var flickrImgElem;		// Referens till element där bilderna ska visas
 var formElem;			// Referens till sökformuläret
 var tags;				// Taggar som anges i sökformuläret
