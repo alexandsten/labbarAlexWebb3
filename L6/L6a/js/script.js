@@ -111,7 +111,7 @@ function requestLocation(id) {
 // Visa koordinater
 function showLocation(response) {
 	// endast lat och lang i textformat - i vilket id?
-
+	flickrImgElem.innerHTML = "Texten blir " + response + " lol";
 } // End showLocation
 
 // Ajax-begäran av nya bilder
