@@ -78,7 +78,7 @@ function prevPage() {
 // Hämta nästa uppsättning bilder
 function nextPage() {
 	pageNr++;
-	requestNewImgs();
+	requestNewImgs("has_geo=1");
 } // End nextPage
 
 // Visa större bild av den som användaren klickat på
@@ -96,7 +96,19 @@ function enlargeImg() {
 
 // Ajax-begäran av plats för bilden
 function requestLocation(id) {
-	
+	let reqLoc = JSON.parse(flickr.photos.geo.getLocation(id));
+
+
+	let request = new XMLHttpRequest(); // Object för Ajax-anropet
+	request.open("GET","json/movies.json",true);
+	request.send(null); // Skicka begäran till servern
+	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
+		if (request.readyState == 4) // readyState 4 --> kommunikationen är klar
+			if (request.status == 200) showMovies(request.responseText); // status 200 (OK) --> filen fanns
+			else document.getElementById("movieList").innerHTML = "Den begärda resursen fanns inte.";
+
+	// nåt sånt här
+	let movies = JSON.parse(jsonCode).movielist;
 } // End requestLocation
 
 // Visa koordinater
