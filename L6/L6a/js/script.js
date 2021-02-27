@@ -102,7 +102,7 @@ function requestLocation(id) {
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4)
-			if (request.status == 200) newImgs(request.responseText);
+			if (request.status == 200) showLocation(request.responseText);
 			else flickrImgElem.innerHTML = "Den begärda resursen finns inte.";
 	};
 
@@ -110,17 +110,20 @@ function requestLocation(id) {
 
 // Visa koordinater
 function showLocation(response) {
-	
+	// endast lat och lang i textformat - i vilket id?
+
 } // End showLocation
 
 // Ajax-begäran av nya bilder
 function requestImgsByLocation(lat,lon) {
-	
+	// showlocation plockar ju ut lat och lang i textformat, använd dessa för att göra denna sökning
+
 } // End requestImgsByLocation
 
 // Tolka svaret och visa upp bilderna.
 function showMoreImgs(response) {
-	
+	// efter förra sökning - visa dessa bilder
+
 } // End showMoreImgs
 
 // ---------- Karta från Google Maps ---------- Extramerit
