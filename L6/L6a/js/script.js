@@ -96,19 +96,16 @@ function enlargeImg() {
 
 // Ajax-begäran av plats för bilden
 function requestLocation(id) {
-	let reqLoc = JSON.parse(flickr.photos.geo.getLocation(id));
-
 
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
-	request.open("GET","json/movies.json",true);
+	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation=" + tags + "&per_page=5&page=" + pageNr + "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
-		if (request.readyState == 4) // readyState 4 --> kommunikationen är klar
-			if (request.status == 200) showMovies(request.responseText); // status 200 (OK) --> filen fanns
-			else document.getElementById("movieList").innerHTML = "Den begärda resursen fanns inte.";
+		if (request.readyState == 4)
+			if (request.status == 200) newImgs(request.responseText);
+			else flickrImgElem.innerHTML = "Den begärda resursen finns inte.";
+	};
 
-	// nåt sånt här
-	let movies = JSON.parse(jsonCode).movielist;
 } // End requestLocation
 
 // Visa koordinater
