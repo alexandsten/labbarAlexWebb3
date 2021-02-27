@@ -42,7 +42,7 @@ function requestNewImgs() {
 	flickrImgElem.innerHTML = "<img src='img/progress.gif' style='border:none;'>";
 	pageNrElem.innerHTML = pageNr;
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
-	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.search&tags=" + tags + "&per_page=5&page=" + pageNr + "&format=json&nojsoncallback=1",true);
+	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.search&tags=" + tags + "&per_page=5&page=" + pageNr +  "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4)
@@ -78,7 +78,7 @@ function prevPage() {
 // Hämta nästa uppsättning bilder
 function nextPage() {
 	pageNr++;
-	requestNewImgs("has_geo=1");
+	requestNewImgs();
 } // End nextPage
 
 // Visa större bild av den som användaren klickat på
@@ -98,7 +98,7 @@ function enlargeImg() {
 function requestLocation(id) {
 
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
-	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation&photo.id_=" + id + "&format=json&nojsoncallback=1",true);
+	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation&photo_id=" + id + "has_geo=1" + "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
 	request.onreadystatechange = function () { // Funktion för att avläsa status i kommunikationen
 		if (request.readyState == 4)
@@ -111,10 +111,21 @@ function requestLocation(id) {
 // Visa koordinater
 function showLocation(response) {
 	// endast lat och lang i textformat - i vilket id?
-	if (response.stat != "ok") {
-		alert("Något blev fel vid anropet till Flickr");
-		return;
-	}
+
+	let latitude = JSON.parse(response).photo.location.latitude;
+	let longitude = JSON.parse(response).photo.location.longitude;
+	let HTMLcode = "";
+
+	HTMLcode +=  
+
+	"<p><b>Latitude:</b> " + latitude + "</p>" +
+	"<p><b>Longitude:</b> " + longitude + "</p>"
+
+	imgLocationElem.innerHTML = HTMLcode;
+
+	/*
+	{"photo":{"id":"50985171202","location":{"latitude":"36.838810","longitude":"-84.344916","accuracy":"15","context":"0","locality":{"_content":"Honeybee"},"county":{"_content":"McCreary"},"region":{"_content":"Kentucky"},"country":{"_content":"United States"},"neighbourhood":{"_content":""}}},"stat":"ok"}
+	*/
 	
 } // End showLocation
 
