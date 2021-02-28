@@ -73,6 +73,7 @@ function showAddrMarker() {
 
 	for (let i = 0; i < markerData.length; i++) {
 		let newMarker = new google.maps.Marker(markerData[ix]); // Objekt för markering
+	/*	alert(markerData[ix].position.lat);	*/
 		myMarkers.push(newMarker);
 		newMarker.setMap(myMap);
 		
