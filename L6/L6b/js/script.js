@@ -37,15 +37,24 @@ function initMap() {
 			}
 		);
 	let	buttons = document.getElementById("addrBtns").getElementsByTagName("button");
+	let loop = ["0", "1", "2", "3", "4"];
 	for (let i = 0; i < markerData.length; i++) {
 		let newMarker = new google.maps.Marker(markerData[i]); // Objekt för markering
-		myMarkers.push(newMarker);
+		myMarkers.push(newMarker);	/*
 			buttons[0].innerHTML = markerData[0].title;
 			buttons[1].innerHTML = markerData[1].title;
 			buttons[2].innerHTML = markerData[2].title;
 			buttons[3].innerHTML = markerData[3].title;
 			buttons[4].innerHTML = markerData[4].title;
+			*/
 	}
+
+	for (let i = 0; i <loop.length; i++) {
+		buttons[loop[i]].innerHTML = markerData[loop[i]].title;
+	}
+
+
+
 	userMarker = null;
 	google.maps.event.addListener(myMap,"click",newUserMarker);
 } // End initMap
