@@ -73,12 +73,20 @@ function showAddrMarker() {
 
 	for (let i = 0; i < markerData.length; i++) {
 		let newMarker = new google.maps.Marker(markerData[ix]); // Objekt för markering
-	/*	alert(markerData[ix].position.lat);	*/
+		let latitude = markerData[ix].position.lat;	
+		let longitude = markerData[ix].position.lng;	
 		myMarkers.push(newMarker);
 		newMarker.setMap(myMap);
 		
-	}
+	let HTMLcode = "";
 
+	HTMLcode +=  
+
+	"<p><b>Latitude:</b> " + latitude + "</p>" +
+	"<p><b>Longitude:</b> " + longitude + "</p>"
+
+	mapLocationElem.innerHTML = HTMLcode;
+	}
 } // End showAddrMarker
 
 // Dölj alla markeringar
