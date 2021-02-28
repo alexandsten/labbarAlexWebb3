@@ -63,13 +63,21 @@ function newUserMarker(e) {
 
 // Visa marker för den adressknapp som användaren klickat på
 function showAddrMarker() {
-	
+	hideMarkers()
+
 	let ix = this.getAttribute("data-ix");
 	let ixQ = parseInt(ix, 10);
 	ixQ++;
 	buttonQ = document.querySelector("#addrBtns button:nth-of-type(" + ixQ + ")");
-	
-	alert(buttonQ.value);
+
+
+	for (let i = 0; i < markerData.length; i++) {
+		let newMarker = new google.maps.Marker(markerData[ix]); // Objekt för markering
+		myMarkers.push(newMarker);
+		newMarker.setMap(myMap);
+		
+	}
+
 } // End showAddrMarker
 
 // Dölj alla markeringar
