@@ -63,8 +63,16 @@ function newUserMarker(e) {
 
 // Visa marker för den adressknapp som användaren klickat på
 function showAddrMarker() {
+	
+
 	ix = this.getAttribute("data-ix");
 	alert(ix);
+	var ixQ = parseInt(ix, 10);
+	ixQ++;
+	
+	buttonQ = document.querySelector("#addrBtns button:nth-of-type(" + ixQ + ")");
+	
+	buttonQ.innerHTML = "hej";
 } // End showAddrMarker
 
 // Dölj alla markeringar
