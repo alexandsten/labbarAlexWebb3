@@ -28,7 +28,7 @@ function initMap() {
 	myMap = new google.maps.Map(
 			document.getElementById('map'),
 			{
-				center: {lat:0.000000, lng:0.000000},
+				center: {lat:33.883988, lng: -118.231444},
 				zoom: 14,
 				styles: [
 					{featureType:"poi", stylers:[{visibility:"off"}]},  // No points of interest.
