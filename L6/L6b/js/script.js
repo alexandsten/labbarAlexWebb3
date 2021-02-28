@@ -29,7 +29,7 @@ function initMap() {
 			document.getElementById('map'),
 			{
 				center: {lat:33.883988, lng: -118.231444},
-				zoom: 18,
+				zoom: 12,
 				styles: [
 					{featureType:"poi", stylers:[{visibility:"off"}]},  // No points of interest.
 					{featureType:"transit.station",stylers:[{visibility:"off"}]}  // No bus stations, etc.
@@ -40,17 +40,13 @@ function initMap() {
 	let loop = ["0", "1", "2", "3", "4"];
 	for (let i = 0; i < markerData.length; i++) {
 		let newMarker = new google.maps.Marker(markerData[i]); // Objekt för markering
-		myMarkers.push(newMarker);	/*
-			buttons[0].innerHTML = markerData[0].title;
-			buttons[1].innerHTML = markerData[1].title;
-			buttons[2].innerHTML = markerData[2].title;
-			buttons[3].innerHTML = markerData[3].title;
-			buttons[4].innerHTML = markerData[4].title;
-			*/
+		myMarkers.push(newMarker);	
 	}
 
 	for (let i = 0; i <loop.length; i++) {
 		buttons[loop[i]].innerHTML = markerData[loop[i]].title;
+		buttons[loop[i]].addEventListener("click",showAddrMarker);
+		buttons[loop[i]].setAttribute("data-ix",loop[i]);
 	}
 
 
@@ -69,7 +65,7 @@ function newUserMarker(e) {
 
 // Visa marker för den adressknapp som användaren klickat på
 function showAddrMarker() {
-	
+	alert(this.getAttribute("data-ix"));
 } // End showAddrMarker
 
 // Dölj alla markeringar
