@@ -96,7 +96,6 @@ function enlargeImg() {
 
 // Ajax-begäran av plats för bilden
 function requestLocation(id) {
-
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.geo.getLocation&photo_id=" + id  + "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
@@ -110,36 +109,19 @@ function requestLocation(id) {
 
 // Visa koordinater
 function showLocation(response) {
-	// endast lat och lang i textformat - i vilket id?
-
 	let latitude = JSON.parse(response).photo.location.latitude;
 	let longitude = JSON.parse(response).photo.location.longitude;
 	let HTMLcode = "";
-
 	HTMLcode +=  
-
 	"<p><b>Latitude:</b> " + latitude + "</p>" +
-	"<p><b>Longitude:</b> " + longitude + "</p>"
-
+	"<p><b>Longitude:</b> " + longitude + "</p>";
 	imgLocationElem.innerHTML = HTMLcode;
-
 	requestImgsByLocation(latitude,longitude)
-
-	/*
-	{"photo":{"id":"50985171202","location":{"latitude":"36.838810","longitude":"-84.344916","accuracy":"15","context":"0","locality":{"_content":"Honeybee"},"county":{"_content":"McCreary"},"region":{"_content":"Kentucky"},"country":{"_content":"United States"},"neighbourhood":{"_content":""}}},"stat":"ok"}
-	*/
-	
 } // End showLocation
 
 // Ajax-begäran av nya bilder
 function requestImgsByLocation(lat,lon) {
-	/*
-	"&bbox=" long,lat,long,lat
-
-	"&lat="
-	"&lon="	*/
 	moreImg.innerHTML = "<img src='img/progress.gif' style='border:none;'>";
-
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.search&tags=" + tags +  "&per_page=5" + "&has_geo=1" + "&lon=" + lon +  "&lat=" + lat + "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
@@ -148,14 +130,10 @@ function requestImgsByLocation(lat,lon) {
 			if (request.status == 200) showMoreImgs(request.responseText);
 			else imgLocationElem.innerHTML = "Den begärda resursen finns inte.";
 	};
-
-
-	
 } // End requestImgsByLocation
 
 // Tolka svaret och visa upp bilderna.
 function showMoreImgs(response) {
-	// efter förra sökning - visa dessa bilder
 	response = JSON.parse(response);
 	moreImgElem.innerHTML = "";		
 	for (let i = 0; i < response.photos.photo.length; i++) {
