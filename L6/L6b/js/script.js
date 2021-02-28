@@ -49,8 +49,6 @@ function initMap() {
 		buttons[loop[i]].setAttribute("data-ix",loop[i]);
 	}
 
-
-
 	userMarker = null;
 	google.maps.event.addListener(myMap,"click",newUserMarker);
 } // End initMap
@@ -65,7 +63,8 @@ function newUserMarker(e) {
 
 // Visa marker för den adressknapp som användaren klickat på
 function showAddrMarker() {
-	alert(this.getAttribute("data-ix"));
+	ix = this.getAttribute("data-ix");
+	alert(ix);
 } // End showAddrMarker
 
 // Dölj alla markeringar
