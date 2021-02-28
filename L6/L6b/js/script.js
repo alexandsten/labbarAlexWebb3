@@ -29,16 +29,22 @@ function initMap() {
 			document.getElementById('map'),
 			{
 				center: {lat:33.883988, lng: -118.231444},
-				zoom: 14,
+				zoom: 18,
 				styles: [
 					{featureType:"poi", stylers:[{visibility:"off"}]},  // No points of interest.
 					{featureType:"transit.station",stylers:[{visibility:"off"}]}  // No bus stations, etc.
 				]
 			}
 		);
+	let	buttons = document.getElementById("addrBtns").getElementsByTagName("button");
 	for (let i = 0; i < markerData.length; i++) {
 		let newMarker = new google.maps.Marker(markerData[i]); // Objekt för markering
 		myMarkers.push(newMarker);
+			buttons[0].innerHTML = markerData[0].title;
+			buttons[1].innerHTML = markerData[1].title;
+			buttons[2].innerHTML = markerData[2].title;
+			buttons[3].innerHTML = markerData[3].title;
+			buttons[4].innerHTML = markerData[4].title;
 	}
 	userMarker = null;
 	google.maps.event.addListener(myMap,"click",newUserMarker);
