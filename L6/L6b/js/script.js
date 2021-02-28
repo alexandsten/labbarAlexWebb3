@@ -3,11 +3,11 @@ var myMap;				// Objekt för kartan
 var myMarkers = [];		// Array med markeringar
 var userMarker;			// Objekt för markering där användaren klickar
 const markerData = [	// Data för markeringar som hör till knapparna
-			{position:{lat:0.000000,lng:0.000000},title:"x"},
-			{position:{lat:0.000000,lng:0.000000},title:"x"},
-			{position:{lat:0.000000,lng:0.000000},title:"x"},
-			{position:{lat:0.000000,lng:0.000000},title:"x"},
-			{position:{lat:0.000000,lng:0.000000},title:"x"}
+			{position:{lat:33.890247,lng:-118.227371},title:"Compton High School"},
+			{position:{lat:33.875148,lng: -118.220395},title:"Compton Casino"},
+			{position:{lat:33.877239,lng:-118.211523},title:"Compton Collage"},
+			{position:{lat:33.889407,lng:-118.243880},title:"Compton Airport"},
+			{position:{lat:33.841863,lng:-118.259711},title:"Compton IKEA"}
 		];
 var mapLocationElem;			// Element för utskrift av koordinater
 var myApiKey = "e8e9fc8c2c5dbe8d7e0d839cc15ee0c9";	// Ersätt DIN-API-KEY med din egen Flickr API key
