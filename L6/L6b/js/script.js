@@ -69,7 +69,7 @@ function showAddrMarker() {
 	let newMarker = new google.maps.Marker(markerData[ix]); // Objekt för markering
 	newMarker.setMap(myMap);
 	myMarkers.push(newMarker);
-	let HTMLcode = "";
+	let HTMLcode = "";	// text för latitud och longitud som ska läggas i mapLocationElem
 	HTMLcode +=  
 	"<p><b>Latitude:</b> " + latitude + "</p>" +
 	"<p><b>Longitude:</b> " + longitude + "</p>";
