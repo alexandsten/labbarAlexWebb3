@@ -12,6 +12,7 @@ function init() {
 
 window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 
+// if sats som används för att välja rätt film från json koden
 function requestData() {
     if (this.id == "knapp1") {
         choice = 0;
@@ -32,16 +33,15 @@ function requestData() {
 	};
 }
 
+// visar json koden 
 function showMovies(jsonCode) {
-  /*  titleElem.innerHTML = JSON.parse(jsonCode);	// json kategori    */
     let HTMLcode = "";
-
     let movies = JSON.parse(jsonCode).movielist;
 
 	for (let i = 0; i < movies.length; i++) {
 		// Referenser till olika egenskaper i aktuellt accomodation-objekt
 		HTMLcode +=  
-
+        // if satsen med choice används för att välja rätt film
         "<p><b>Filmtitel:</b> " +
         "<a href = " + movies[i].film[choice].title.url + ">" +  movies[i].film[choice].title.name + "</a>" +  "</p>" +
         "<p><b>Regissör:</b> " + 
@@ -55,8 +55,5 @@ function showMovies(jsonCode) {
         "<h3>" + movies[i].genredescription + "</h3>" 
                     ;
 	}
-
-
     movieElem.innerHTML = HTMLcode;
-
 }
