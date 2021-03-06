@@ -51,7 +51,7 @@ function showMovies(jsonCode) {
 		"<p><b>Starttid:</b> " + movies[i].film[choice].starttime +  "</p>" +
 		"<hr>" +
 
-         "<a href = " + movies[i].contact.url + " target = blank>" + "Kontakt" + "</a>" +     
+        "<a href = " + movies[i].contact.url + " target = blank>" + "Kontakt" + "</a>" +     
         "<h3>" + movies[i].genredescription + "</h3>" 
                     ;
 	}
