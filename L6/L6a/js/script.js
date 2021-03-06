@@ -121,7 +121,7 @@ function showLocation(response) {
 
 // Ajax-begäran av nya bilder
 function requestImgsByLocation(lat,lon) {
-	moreImg.innerHTML = "<img src='img/progress.gif' style='border:none;'>";
+	moreImgElem.innerHTML = "<img src='img/progress.gif' style='border:none;'>";
 	let request = new XMLHttpRequest(); // Object för Ajax-anropet
 	request.open("GET","https://api.flickr.com/services/rest/?api_key=" + myApiKey + "&method=flickr.photos.search&tags=" + tags +  "&per_page=5" + "&has_geo=1" + "&lon=" + lon +  "&lat=" + lat + "&format=json&nojsoncallback=1",true);
 	request.send(null); // Skicka begäran till servern
