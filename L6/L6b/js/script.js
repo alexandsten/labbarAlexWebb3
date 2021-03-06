@@ -42,8 +42,8 @@ function initMap() {
 		let newMarker = new google.maps.Marker(markerData[i]); // Objekt för markering
 		myMarkers.push(newMarker);	
 	}
-	let loop = ["0", "1", "2", "3", "4"];
-	for (let i = 0; i <loop.length; i++) {
+	let loop = ["0", "1", "2", "3", "4"];	// array som används för att ge attributnummer i loopen
+	for (let i = 0; i <loop.length; i++) {	// loop som ger händelsehanterare och attributer till knappar
 		buttons[loop[i]].innerHTML = markerData[loop[i]].title;
 		buttons[loop[i]].addEventListener("click",showAddrMarker);
 		buttons[loop[i]].setAttribute("data-ix",loop[i]);
