@@ -109,14 +109,14 @@ function requestLocation(id) {
 
 // Visa koordinater
 function showLocation(response) {
-	let latitude = JSON.parse(response).photo.location.latitude;
-	let longitude = JSON.parse(response).photo.location.longitude;
-	let HTMLcode = "";
+	let latitude = JSON.parse(response).photo.location.latitude;	// fotots latitud
+	let longitude = JSON.parse(response).photo.location.longitude;	// fotots longitud
+	let HTMLcode = "";	//texten som kommer läggas till i imgLocationElem
 	HTMLcode +=  
 	"<p><b>Latitude:</b> " + latitude + "</p>" +
 	"<p><b>Longitude:</b> " + longitude + "</p>";
 	imgLocationElem.innerHTML = HTMLcode;
-	requestImgsByLocation(latitude,longitude)
+	requestImgsByLocation(latitude,longitude); // skicka värderna för latitud och longitud som parametrar
 } // End showLocation
 
 // Ajax-begäran av nya bilder
