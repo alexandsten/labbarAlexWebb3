@@ -36,7 +36,7 @@ function initMap() {
 				]
 			}
 		);
-	let	buttons = document.getElementById("addrBtns").getElementsByTagName("button");
+	let	buttons = document.getElementById("addrBtns").getElementsByTagName("button"); // knappar som ska få attributer och länkar
 	
 	for (let i = 0; i < markerData.length; i++) {
 		let newMarker = new google.maps.Marker(markerData[i]); // Objekt för markering
@@ -48,7 +48,6 @@ function initMap() {
 		buttons[loop[i]].addEventListener("click",showAddrMarker);
 		buttons[loop[i]].setAttribute("data-ix",loop[i]);
 	}
-
 	userMarker = null;
 	google.maps.event.addListener(myMap,"click",newUserMarker);
 } // End initMap
@@ -64,9 +63,9 @@ function newUserMarker(e) {
 // Visa marker för den adressknapp som användaren klickat på
 function showAddrMarker() {
 	hideMarkers();
-	let ix = this.getAttribute("data-ix");
-	let latitude = markerData[ix].position.lat;	
-	let longitude = markerData[ix].position.lng;
+	let ix = this.getAttribute("data-ix");	// hämta attribut data-ix från knappen som trycktes på
+	let latitude = markerData[ix].position.lat;		// hämta latitud från positionen med hjälp av ix variabel
+	let longitude = markerData[ix].position.lng;	// hämta longitud från positionen med hjälp av ix variabel
 	let newMarker = new google.maps.Marker(markerData[ix]); // Objekt för markering
 	newMarker.setMap(myMap);
 	myMarkers.push(newMarker);
