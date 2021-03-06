@@ -39,8 +39,8 @@ function showMovies(jsonCode) {
     let movies = JSON.parse(jsonCode).movielist;
 
 	for (let i = 0; i < movies.length; i++) {
-		// Referenser till olika egenskaper i aktuellt accomodation-objekt
 		HTMLcode +=  
+        // fyller i p och a element med data från json dokumentet
         // if satsen med choice används för att välja rätt film
         "<p><b>Filmtitel:</b> " +
         "<a href = " + movies[i].film[choice].title.url + ">" +  movies[i].film[choice].title.name + "</a>" +  "</p>" +
