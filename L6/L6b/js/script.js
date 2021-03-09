@@ -58,22 +58,36 @@ function newUserMarker(e) {
 	userMarker = new google.maps.Marker();
 	userMarker.setPosition(e.latLng);
 	userMarker.setMap(myMap);
+
+	// testa här då //
+
+	let latitude = 	userMarker.getPosition({lat:e.latLng.lat()});	// hämta latitud från positionen med hjälp av ix variabel
+	let longitude = 	userMarker.getPosition({lng:e.latLng.lng()});	// hämta longitud från positionen med hjälp av ix variabel
+	let HTMLcode = "";	// text för latitud och longitud som ska läggas i mapLocationElem
+	HTMLcode +=  
+	"<p><b>Latitude:</b> " + latitude + "</p>" +
+	"<p><b>Longitude:</b> " + longitude + "</p>";
+	mapLocationElem.innerHTML = HTMLcode;
 } // End newUserMarker
 
 // Visa marker för den adressknapp som användaren klickat på
 function showAddrMarker() {
 	hideMarkers();
 	let ix = this.getAttribute("data-ix");	// hämta attribut data-ix från knappen som trycktes på
+	/*
 	let latitude = markerData[ix].position.lat;		// hämta latitud från positionen med hjälp av ix variabel
 	let longitude = markerData[ix].position.lng;	// hämta longitud från positionen med hjälp av ix variabel
+	*/
 	let newMarker = new google.maps.Marker(markerData[ix]); // Objekt för markering
 	newMarker.setMap(myMap);
 	myMarkers.push(newMarker);
+	/*
 	let HTMLcode = "";	// text för latitud och longitud som ska läggas i mapLocationElem
 	HTMLcode +=  
 	"<p><b>Latitude:</b> " + latitude + "</p>" +
 	"<p><b>Longitude:</b> " + longitude + "</p>";
 	mapLocationElem.innerHTML = HTMLcode;
+	*/
 } // End showAddrMarker
 
 // Dölj alla markeringar
