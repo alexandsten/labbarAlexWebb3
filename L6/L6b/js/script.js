@@ -59,7 +59,7 @@ function newUserMarker(e) {
 	userMarker.setPosition(e.latLng);
 	userMarker.setMap(myMap);
 
-	// testa här då //
+	// hämta latitud och longitud
 
 	let latitude = 	userMarker.getPosition({lat:e.latLng.lat()});	// hämta latitud från positionen med hjälp av ix variabel
 	let longitude = 	userMarker.getPosition({lng:e.latLng.lng()});	// hämta longitud från positionen med hjälp av ix variabel
