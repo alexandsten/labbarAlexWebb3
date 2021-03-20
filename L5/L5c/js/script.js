@@ -14,6 +14,7 @@ function init() {
 
 window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 
+//ajax anrop som hämtar json kod om filmerna, så att den sedan kommer kunna visas
 function requestData() {
 // if sats som används för att välja rätt film från json koden med hjälp av choice variabeln
     if (this.id == "knapp1") {
