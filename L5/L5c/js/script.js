@@ -36,9 +36,9 @@ function requestData() {
 	};
 }
 
-// visar json koden 
+// visar json koden för vald film
 function showMovies(jsonCode) {
-    let HTMLcode = "";
+    let HTMLcode = "";  // variabel som kommer att bära på text informationen om filmen
     let movies = JSON.parse(jsonCode).movielist;
 
 	for (let i = 0; i < movies.length; i++) {
