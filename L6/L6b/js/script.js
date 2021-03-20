@@ -25,7 +25,7 @@ window.addEventListener("load",init);
 
 // Skapa en karta och markeringar
 function initMap() {
-	myMap = new google.maps.Map(
+	myMap = new google.maps.Map(	
 			document.getElementById('map'),
 			{
 				center: {lat:33.883988, lng: -118.231444},

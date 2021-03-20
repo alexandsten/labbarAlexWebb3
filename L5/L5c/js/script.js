@@ -1,10 +1,10 @@
 // globala variabler
-var movieElem;     // variabel som kommer att visa information om filmer 
+var movieElem;     // element som kommer att visa information om filmer 
 var choice;        // variabel som baserat på val kommer att hjälpa till att styra vilken json information som visas
 
 // Initiering av globala variabler och händelsehanterare
 function init() {
-    movieElem = document.getElementById("movieList");   //länkar variabel till id
+    movieElem = document.getElementById("movieList");   //länkar element till id
     movieElem.innerHTML = "";  
     // dessa representerar de olika film valen, och används till att visa json information om filmerna 
     document.getElementById("knapp1").addEventListener("click",requestData);
@@ -14,7 +14,7 @@ function init() {
 
 window.addEventListener("load",init); // init aktiveras då sidan är inladdad
 
-//ajax anrop som hämtar json kod om filmerna, så att den sedan kommer kunna visas
+// ajax anrop som hämtar json kod om filmerna, så att den sedan kommer kunna visas
 function requestData() {
 // if sats som används för att välja rätt film från json koden med hjälp av choice variabeln
     if (this.id == "knapp1") {
