@@ -41,10 +41,10 @@ function showMovies(jsonCode) {
     let HTMLcode = "";  // variabel som kommer att bära på text informationen om filmen
     let movies = JSON.parse(jsonCode).movielist;    // variabel för json koden för filmer
 
-	for (let i = 0; i < movies.length; i++) {
+	for (let i = 0; i < movies.length; i++) {       // loop som skriver ut text om filmen som trycktes på
 		HTMLcode +=  
         // fyller i p och a element med data från json dokumentet
-        // if satsen med choice används för att välja rätt film
+        // choice används för att välja rätt film
         "<p><b>Filmtitel:</b> " +
         "<a href = " + movies[i].film[choice].title.url + ">" +  movies[i].film[choice].title.name + "</a>" +  "</p>" +
         "<p><b>Regissör:</b> " + 
@@ -58,5 +58,5 @@ function showMovies(jsonCode) {
         "<h3>" + movies[i].genredescription + "</h3>" 
                     ;
 	}
-    movieElem.innerHTML = HTMLcode;
+    movieElem.innerHTML = HTMLcode; // texten från loopen skrivs ut
 }
