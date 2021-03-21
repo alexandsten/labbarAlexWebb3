@@ -60,7 +60,9 @@ function newUserMarker(e) {
 	userMarker.setMap(myMap);		// sätter markör på kartan myMap
 
 	let latitude = userMarker.getPosition({lat:e.latLng.lat()});	// hämta latitud från positionen
-	let longitude = userMarker.getPosition({lng:e.latLng.lng()});	// hämta longitud från positionen 
+	let longitude = userMarker.getPosition({lng:e.latLng.lng()});		// hämta longitud från positionen
+	
+	/* let longitude = userMarker.getPosition(e.latLng.lng);	*/
 	let HTMLcode = "";	// text för latitud och longitud som ska läggas i mapLocationElem
 	HTMLcode +=  
 	"<p><b>Latitude:</b> " + latitude + "</p>" +
