@@ -56,17 +56,17 @@ function initMap() {
 function newUserMarker(e) {
 	hideMarkers();
 	userMarker = new google.maps.Marker();	// ny markör
-	userMarker.setPosition(e.latLng);	// position för ny markör, använder parameter
+	userMarker.setPosition({lat:e.latLng.lat(),lng:e.latLng.lng()});;	// position för ny markör, använder parameter
 	userMarker.setMap(myMap);		// sätter markör på kartan myMap
 
-	let latitude = userMarker.getPosition({lat:e.latLng.lat()});	// hämta latitud från positionen
-	let longitude = userMarker.getPosition({lng:e.latLng.lng()});		// hämta longitud från positionen
+	let latitude = userMarker.setPosition({lat:e.latLng.lat()});	// hämta latitud från positionen
+	let longitude = userMarker.setPosition({lat:e.latLng.lat()});	// hämta longitud från positionen
 	
 	/* let longitude = userMarker.getPosition(e.latLng.lng);	*/
 	let HTMLcode = "";	// text för latitud och longitud som ska läggas i mapLocationElem
 	HTMLcode +=  
-	"<p><b>Latitude:</b> " + latitude + "</p>" +
-	"<p><b>Longitude:</b> " + longitude + "</p>";
+	"<p><b>Latitude:</b> " + e.latLng.lat() + "</p>" +
+	"<p><b>Longitude:</b> " + e.latLng.lng() + "</p>";
 	mapLocationElem.innerHTML = HTMLcode;
 } // End newUserMarker
 
