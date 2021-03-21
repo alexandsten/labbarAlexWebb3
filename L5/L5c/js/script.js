@@ -40,7 +40,6 @@ function requestData() {
 function showMovies(jsonCode) {
     let HTMLcode = "";  // variabel som kommer att bära på text informationen om filmen
     let movies = JSON.parse(jsonCode).movielist;    // variabel för json koden för filmer
-
 	for (let i = 0; i < movies.length; i++) {       // loop som skriver ut text om filmen som trycktes på
 		HTMLcode +=  
         // fyller i p och a element med data från json dokumentet
