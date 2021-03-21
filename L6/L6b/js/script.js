@@ -58,7 +58,6 @@ function newUserMarker(e) {
 	userMarker = new google.maps.Marker();	// ny markör
 	userMarker.setPosition({lat:e.latLng.lat(),lng:e.latLng.lng()});	// position för ny markör, använder parameter
 	userMarker.setMap(myMap);		// sätter markör på kartan myMap
-	
 	let HTMLcode = "";	// text för latitud och longitud som ska läggas i mapLocationElem
 	HTMLcode +=  
 	"<p><b>Latitude:</b> " + e.latLng.lat() + "</p>" +	// tar ut latitud från positionen och lägger in i textsträngen
@@ -70,7 +69,6 @@ function newUserMarker(e) {
 function showAddrMarker() {
 	hideMarkers();
 	let ix = this.getAttribute("data-ix");	// hämta attribut data-ix från knappen som trycktes på
-	
 	let newMarker = new google.maps.Marker(markerData[ix]); // Objekt för markering
 	newMarker.setMap(myMap);	// sätt markör på kartan myMap
 	myMarkers.push(newMarker);
