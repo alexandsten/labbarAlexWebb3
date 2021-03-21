@@ -59,11 +59,10 @@ function newUserMarker(e) {
 	userMarker.setPosition({lat:e.latLng.lat(),lng:e.latLng.lng()});	// position för ny markör, använder parameter
 	userMarker.setMap(myMap);		// sätter markör på kartan myMap
 	
-	/* let longitude = userMarker.getPosition(e.latLng.lng);	*/
 	let HTMLcode = "";	// text för latitud och longitud som ska läggas i mapLocationElem
 	HTMLcode +=  
-	"<p><b>Latitude:</b> " + e.latLng.lat() + "</p>" +
-	"<p><b>Longitude:</b> " + e.latLng.lng() + "</p>";
+	"<p><b>Latitude:</b> " + e.latLng.lat() + "</p>" +	// tar ut latitud från positionen
+	"<p><b>Longitude:</b> " + e.latLng.lng() + "</p>";	// tar ut longitud från positionen
 	mapLocationElem.innerHTML = HTMLcode;
 } // End newUserMarker
 
